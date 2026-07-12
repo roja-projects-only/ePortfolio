@@ -10,9 +10,3 @@ const labels: Record<ParticipantId, string> = {
 export function aliasFor(id: ParticipantId): string {
   return labels[id];
 }
-
-/** Short form for compact tags, e.g. "PP-01". */
-export function shortAliasFor(id: ParticipantId): string {
-  if (id === 'shared') return 'Shared';
-  return id === 'p01' ? 'PP-01' : 'PP-02';
-}

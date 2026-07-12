@@ -21,14 +21,10 @@ export function ReflectionArcView({
   index: number;
 }) {
   const flipped = index % 2 === 1;
-  const numeral = String(index + 1).padStart(2, '0');
 
   return (
     <article id={reflection.id} className="scroll-mt-24">
       <div className={cn('flex flex-col gap-4 md:flex-row md:items-baseline md:gap-6', flipped && 'md:flex-row-reverse')}>
-        <span aria-hidden="true" className="font-serif text-display-lg leading-none text-ink-faint tabular-nums">
-          {numeral}
-        </span>
         <div className={cn(flipped && 'md:text-right')}>
           <h2 className="text-display-lg text-ink">{reflection.name}</h2>
           <p className="mt-2 font-sans text-label uppercase tracking-wide text-ink-faint">
@@ -55,6 +51,24 @@ export function ReflectionArcView({
             </p>
           </div>
         ))}
+      </div>
+
+      {/* Commitments */}
+      <div className="mt-8 rounded-xl border border-hairline bg-surface-1 p-6">
+        <h3 className="font-sans text-kicker uppercase text-ink-faint">My commitments</h3>
+        <ul className="mt-4 space-y-3">
+          {reflection.commitments.map((commitment, i) => (
+            <li key={i} className="flex gap-3">
+              <span
+                aria-hidden="true"
+                className="mt-2.5 h-px w-4 shrink-0 bg-ink-faint"
+              />
+              <span className="font-serif text-reading leading-relaxed text-ink-muted">
+                {commitment}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </article>
   );

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { X } from 'lucide-react';
-import { sections, chapterNumerals } from '../../content/sections';
+import { sections } from '../../content/sections';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { cn } from '../../lib/cn';
 
@@ -99,7 +99,7 @@ export function NavDrawer({ open, onClose, activeKey }: NavDrawerProps) {
 
             <nav aria-label="Portfolio sections" className="min-h-0 flex-1 overflow-y-auto px-3 py-4">
               <ol className="space-y-1">
-                {sections.map((section, i) => {
+                {sections.map((section) => {
                   const isActive = section.key === activeKey;
                   return (
                     <li key={section.key}>
@@ -115,15 +115,6 @@ export function NavDrawer({ open, onClose, activeKey }: NavDrawerProps) {
                             : 'text-ink-muted hover:bg-surface-2 hover:text-ink',
                         )}
                       >
-                        <span
-                          aria-hidden="true"
-                          className={cn(
-                            'w-5 shrink-0 text-center font-sans text-kicker tracking-normal tabular-nums',
-                            isActive ? 'text-accent' : 'text-ink-faint',
-                          )}
-                        >
-                          {chapterNumerals[i] || '·'}
-                        </span>
                         {section.label}
                       </NavLink>
                     </li>

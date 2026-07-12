@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { PanelLeftClose, PanelLeftOpen, Printer } from 'lucide-react';
-import { sections, chapterNumerals } from '../../content/sections';
+import { sections } from '../../content/sections';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { cn } from '../../lib/cn';
 
@@ -52,8 +52,7 @@ export function Sidebar({ activeKey, activeIndex, collapsed, onToggleCollapsed }
       {/* Table of contents */}
       <nav aria-label="Portfolio sections" className="mt-7 min-h-0 flex-1 overflow-y-auto scrollbar-none">
         <ol className="space-y-0.5">
-          {sections.map((section, i) => {
-            const numeral = chapterNumerals[i];
+          {sections.map((section) => {
             const isActive = section.key === activeKey;
             return (
               <li key={section.key} className="relative">
@@ -80,16 +79,6 @@ export function Sidebar({ activeKey, activeIndex, collapsed, onToggleCollapsed }
                       />
                     )
                   )}
-                  <span
-                    aria-hidden="true"
-                    className={cn(
-                      'relative shrink-0 text-center font-sans text-kicker tracking-normal tabular-nums',
-                      collapsed ? 'w-full' : 'w-5',
-                      isActive ? 'text-accent' : 'text-ink-faint',
-                    )}
-                  >
-                    {numeral || '·'}
-                  </span>
                   {!collapsed && <span className="relative truncate">{section.label}</span>}
                 </NavLink>
               </li>

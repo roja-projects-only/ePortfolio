@@ -2,14 +2,12 @@ import type {
   CoverMeta,
   IntroductionContent,
   EngagementContent,
-  ParticipantProfile,
-  VoicesContent,
-  FindingsContent,
+  HighlightsContent,
   PhilosophyContent,
   PersonalReflection,
-  CommitmentsContent,
   ConclusionContent,
   ReferencesContent,
+  DocumentationFigure,
 } from '../types/portfolio';
 
 /*
@@ -23,9 +21,8 @@ import type {
  *      "Participant 02's child", or similar.
  *    • When you insert a verbatim transcript quotation, keep the
  *      `context` field so the quote is never read out of context.
- *  The English renderings below are faithful to the documented
- *  realities of the two interviews; replace them with your approved
- *  transcript quotations as they are finalised.
+ *  Quotations must remain in their original Filipino, Taglish, or
+ *  English — never translate them into formal English.
  * ─────────────────────────────────────────────────────────────────────
  */
 
@@ -39,11 +36,9 @@ export const cover: CoverMeta = {
     'Jordin Rose Dela Cruz',
     'Rodger C. Pacumba Jr.',
   ],
-  // Confirm the exact section identifier before submission.
   gradeSection: 'Grade 12',
   subject: 'Philosophy of the Human Person',
   submission: 'July 2026',
-  method: 'An interview-based philosophical inquiry',
 };
 
 /* ── Introduction ──────────────────────────────────────────────────── */
@@ -82,13 +77,6 @@ export const introduction: IntroductionContent = {
         'Genuine understanding begins when we allow another person to correct our picture of their life. Listening is not a courtesy added to research; for this inquiry, it was the method itself.',
       ],
     },
-    {
-      id: 'role',
-      heading: 'Our role as student researchers',
-      body: [
-        'We came to this work as students of philosophy and as beginners in listening well. We are not experts on disability, and we do not claim to be. What we offer is careful attention, honest reflection, and a willingness to be changed by what we learned.',
-      ],
-    },
   ],
 };
 
@@ -98,9 +86,19 @@ export const engagement: EngagementContent = {
     'The heart of this project was a set of interviews conducted with two parents of children with disabilities. We treated the encounter itself as an ethical responsibility, not only as a source of information.',
   ],
   interviewDate: 'July 9, 2026',
-  setting: 'Within the participants’ barangay community',
-  participantsNote:
-    'Two mothers, each caring for a child with a disability, agreed to share their experiences with us. Throughout this portfolio they are identified only as Parent Participant 01 and Parent Participant 02.',
+  setting: 'Within the participants\u2019 barangay community',
+  participants: [
+    {
+      alias: 'Parent Participant 01',
+      description:
+        'A mother caring for a child with Down syndrome, a congenital heart condition, and significant medical and communication support needs. She is also actively involved in community initiatives that support PWD families.',
+    },
+    {
+      alias: 'Parent Participant 02',
+      description:
+        'A mother whose child manages many daily activities independently but still meets social and institutional barriers, including bullying at school and unsafe roads.',
+    },
+  ],
   process: [
     {
       label: 'Consent and permission',
@@ -110,29 +108,24 @@ export const engagement: EngagementContent = {
     {
       label: 'Interview',
       detail:
-        'We met the parents in their own community and let each conversation unfold at its own pace, following the parents’ lead rather than a rigid script.',
+        'We met the parents in their own community and let each conversation unfold at its own pace, following the parents\u2019 lead rather than a rigid script.',
     },
     {
       label: 'Transcription',
       detail:
-        'Afterwards we transcribed the recordings carefully, preserving the parents’ own words while removing names and any detail that could identify their families.',
+        'Afterwards we transcribed the recordings carefully, preserving the parents\u2019 own words while removing names and any detail that could identify their families.',
     },
     {
-      label: 'Review',
+      label: 'Review and analysis',
       detail:
-        'We reviewed the transcripts together to make sure we had understood each parent correctly and had not read our own assumptions into what they said.',
-    },
-    {
-      label: 'Analysis',
-      detail:
-        'Finally we identified the recurring themes across both interviews and reflected on the social realities and philosophical questions they raised.',
+        'We reviewed the transcripts together to make sure we had understood each parent correctly, then identified the recurring themes across both interviews and reflected on the social realities and philosophical questions they raised.',
     },
   ],
   ethics: [
     {
       title: 'Anonymity and confidentiality',
       detail:
-        'Real names are never revealed. The parents are referred to only by anonymous identifiers, and their children are never named. Approved photographs may show faces, but no caption, filename, or description discloses an identity.',
+        'Real names are never revealed. The parents are referred to only by anonymous identifiers, and their children are never named. No caption, filename, or description discloses an identity.',
     },
     {
       title: 'Respectful documentation',
@@ -142,220 +135,112 @@ export const engagement: EngagementContent = {
     {
       title: 'Faithful representation',
       detail:
-        'We have tried to represent each parent’s meaning accurately. Where we interpret, we say so plainly, so that our reading is never mistaken for the participants’ own words.',
+        'We have tried to represent each parent\u2019s meaning accurately. Where we interpret, we say so plainly, so that our reading is never mistaken for the participants\u2019 own words.',
     },
   ],
 };
 
-/* ── Participants ──────────────────────────────────────────────────── */
-export const participants: readonly ParticipantProfile[] = [
-  {
-    id: 'p01',
-    alias: 'Parent Participant 01',
-    summary:
-      'A mother caring for a child with Down syndrome, a congenital heart condition, and significant medical and communication support needs.',
-    realities: [
-      'Her child cannot always identify or express internal pain or illness, so she watches for the smallest signs of distress.',
-      'Daily care includes medication, close monitoring, and repeated medical follow-ups.',
-      'Emergencies bring real fear for her child’s safety.',
-      'Treatment and surgery carry costs the family cannot meet alone.',
-      'She relies on, and is grateful for, government and community support.',
-      'Over time she moved from the shock of diagnosis toward acceptance.',
-      'She now advocates for the inclusion of PWD families in community life.',
-    ],
-    interpretation:
-      'Participant 01’s account shows caregiving as a continuous, attentive practice — a form of love expressed through vigilance. Her movement from shock to acceptance and then to advocacy suggests that acceptance is not resignation but the beginning of action.',
-    figureId: 'participant-01',
-  },
-  {
-    id: 'p02',
-    alias: 'Parent Participant 02',
-    summary:
-      'A mother whose child manages many daily activities independently but still meets social and institutional barriers.',
-    realities: [
-      'Her child writes more slowly and needs patience and understanding at school.',
-      'Her child has faced bullying and humiliation from others.',
-      'An alleged threat from a teacher deepened the family’s fear.',
-      'The family worried the child might have to withdraw from school.',
-      'Unsafe roads and crossings are a daily hazard.',
-      'She actively protects and advocates for her child.',
-      'Family is her steady source of strength, and she has come to accept and value her child’s individuality.',
-    ],
-    interpretation:
-      'Participant 02’s account shows that barriers are often social rather than bodily. Her child’s difficulties at school came less from any condition than from impatience, cruelty, and unsafe surroundings — and her advocacy shows how much a protecting parent can change.',
-    figureId: 'participant-02',
-  },
-];
-
-export const participantsIntro: string =
-  'We spoke with two mothers whose experiences differ in almost every practical detail. We present them side by side not to compare or rank them, but to show that disability is diverse, and that social barriers reach different families in different ways. Neither experience is more worthy of attention than the other.';
-
-/* ── Voices & quotations ───────────────────────────────────────────── */
-export const voices: VoicesContent = {
+/* ── Interview Highlights ──────────────────────────────────────────── */
+export const highlights: HighlightsContent = {
   lead: [
-    'The passages below are drawn from what the two parents shared with us. Each is presented with the context needed to understand it, because a sentence lifted out of a life can be easily misread. These English renderings stay faithful to the parents’ meaning; the participants’ own recorded words are held in the reviewed transcripts.',
+    'The passages below are drawn from what the two parents shared with us. Each quotation is presented in the participant\u2019s own original language — Filipino or Taglish — exactly as spoken, because the way a person chooses their words is part of their meaning. Context and insight are provided in English so the reader can understand what the quotation reveals.',
   ],
-  featured: {
-    text:
-      'My greatest fear is what will happen to my child when I am no longer here to care for and protect them — whether they will still be safe, and still be treated with kindness, when I am gone.',
+  participants: [
+    {
+      id: 'p01',
+      alias: 'Parent Participant 01',
+      summary: [
+        'Participant 01 is a mother caring for a child with Down syndrome and a congenital heart condition. Her daily life revolves around close monitoring, medication, and repeated medical follow-ups. Because her child cannot always identify or express internal pain, she must watch for the smallest signs of distress — a form of care that is constant, skilled, and largely invisible to the outside world.',
+        'Over time she moved from the shock of diagnosis toward acceptance, and from acceptance toward advocacy. She now actively encourages other PWD families to join community programs, and she relies on government and community support to manage the high costs of treatment.',
+      ],
+      quotations: [
+        {
+          text: 'Mahirap naming intindihin tulad ng sa hindi po sila marunong magsabi kung ang nararamdaman nila, nagugutom sila. Syempre, kami na lang po ang nag-a-adjust paano namin nag-iintindi sa mga kakilusan nila.',
+          speaker: 'p01',
+          context:
+            'Speaking about the daily challenge of understanding a child who cannot always communicate pain or hunger.',
+          insight:
+            'Caregiving becomes a constant act of interpretation — the parent must learn to read distress through behaviour rather than words.',
+        },
+        {
+          text: 'Pagdating sa part sa loob, wala kaming kaalaman. Kaya ang hirap po talaga ng bilang magulang sa isang PWD.',
+          speaker: 'p01',
+          context:
+            'Explaining that when her child\u2019s pain is internal, she has no way to know exactly what is wrong.',
+          insight:
+            'The uncertainty of not knowing where it hurts is itself a source of suffering for the caregiver.',
+        },
+        {
+          text: 'Nung ipinanganak ko po siya, nagulat po talaga ako sa kaniya\u2026 Hindi ko po natanggap kaagad. Pero nung nakita ko na siya, napatigil ako, doon ko na na-realize na hindi lang naman ako ang may anak na ganito. \u201cLord, tatanggapin ko na po \u2019yung anak ko.\u201d',
+          speaker: 'p01',
+          context:
+            'Describing the moment of birth and the shock of learning about her child\u2019s condition, followed by a turning point toward acceptance.',
+          insight:
+            'Acceptance was not resignation — it was a deliberate decision to love fully, made in the hardest moment.',
+        },
+        {
+          text: 'Kung mayroon pong mga ano para sa gobyerno, diyan po kami nakakaasa. Na dapat po talaga, bigyan ng pansin ang bilang PWD para makaangat ang magulang.',
+          speaker: 'p01',
+          context:
+            'Explaining her dependence on government programs to afford medication, therapy, and hospital visits.',
+          insight:
+            'Without public support, the health of a child depends on a family\u2019s finances rather than on need.',
+        },
+      ],
+    },
+    {
+      id: 'p02',
+      alias: 'Parent Participant 02',
+      summary: [
+        'Participant 02 is a mother whose child can handle most daily tasks independently but still faces social and institutional barriers. Her child writes more slowly than classmates and needs patience and understanding at school — patience that was not always given.',
+        'Her account centres on a confrontation with her child\u2019s teacher, who allegedly threatened her child over slow handwriting and mocked the family for picking him up from school. She advocated fiercely, brought evidence to the principal, and refused to let the matter go. Her story shows that barriers are often social rather than bodily.',
+      ],
+      quotations: [
+        {
+          text: 'Mabagal sumulat \u2019yan, ang gusto ng teacher, sinabi raw dito kay Eric, \u201cBilisan mo \u2019yung pagsulat mo, baka sasampalin kita.\u201d',
+          speaker: 'p02',
+          context:
+            'Recalling what her child\u2019s teacher reportedly said about his slow handwriting.',
+          insight:
+            'A small accommodation — patience with slower writing — was met with a threat instead of understanding.',
+        },
+        {
+          text: 'Mag-backout na ako, nay, sa pag-aaral\u2026 Yung teacher ko ngayon, lagi akong pinapagalitan.',
+          speaker: 'p02',
+          context:
+            'Quoting her child\u2019s words about wanting to quit school because of constant scolding.',
+          insight:
+            'When a school becomes a source of fear rather than safety, the child\u2019s right to education is quietly taken away.',
+        },
+        {
+          text: 'Sinundo, pinagsasabihan daw \u2019yan, \u201cBakit Eric, kailangan mo pang sunduin? \u2019Di ka ba marunong umuwi mag-isa?\u201d Pinagtatawanan ba naman?',
+          speaker: 'p02',
+          context:
+            'Describing how her child was mocked by a teacher for needing to be picked up from school.',
+          insight:
+            'A parent\u2019s reasonable concern for safety — unsafe roads and crossings — was treated as a joke.',
+        },
+        {
+          text: 'Hindi naman natin mapilit \u2019yung gusto natin kung ano ang ipaibigay natin sa kaniya kung ano \u2019yung gusto ng bata, sundan na lang natin kasi PWD nga eh. Kung ang kailangan nila, pagmamahal, unawain, at kalingain.',
+          speaker: 'p02',
+          context:
+            'Sharing her advice to other parents of PWD children.',
+          insight:
+            'Acceptance means following the child\u2019s lead rather than imposing our own expectations.',
+        },
+      ],
+    },
+  ],
+  featuredQuotation: {
+    text: 'Pagdating sa part sa loob, wala kaming kaalaman. Kaya ang hirap po talaga ng bilang magulang sa isang PWD.',
     speaker: 'p01',
     context:
-      'Speaking about the future, Participant 01 named a fear that caregiving parents often carry quietly: not for themselves, but for a child who may outlive the person who understands them best.',
+      'On the difficulty of recognising a child\u2019s internal pain when communication is limited.',
+    insight:
+      'This fear stayed with us most — it is not a fear of disability, but of a world that may not understand her child.',
   },
   featuredFraming:
-    'Of everything we heard, this fear stayed with us most. It is not a fear of disability. It is a fear about a world that may not receive her child with the patience and care she gives every day.',
-  secondary: [
-    {
-      text:
-        'Sometimes my child cannot tell me where it hurts, so I have to watch very closely and learn to read the smallest signs.',
-      speaker: 'p01',
-      context:
-        'On the difficulty of recognising a child’s pain when communication is limited — a reality that makes constant attentiveness a form of care.',
-    },
-    {
-      text:
-        'At first I was in shock, and I cried. In time I learned to accept my child completely, and to keep caring without losing hope.',
-      speaker: 'p01',
-      context:
-        'On the movement from the shock of diagnosis toward acceptance — described not as giving up, but as steadying herself for the work of love.',
-    },
-    {
-      text:
-        'When my child was humiliated at school, I could not stay silent. No child should be made to feel small for learning differently.',
-      speaker: 'p02',
-      context:
-        'On mistreatment at school, and on a parent’s refusal to let cruelty go unanswered.',
-    },
-    {
-      text:
-        'The treatments cost more than we can carry alone. Without help from the government and our community, I do not know how we would manage.',
-      speaker: 'p01',
-      context:
-        'On the financial weight of ongoing medical care, and on a family’s dependence on public and community support.',
-    },
-    {
-      text:
-        'I will keep protecting my child and speaking up, so that my child can stay in school and be safe.',
-      speaker: 'p02',
-      context:
-        'On parental determination — protection expressed as steady, active advocacy rather than a single dramatic act.',
-    },
-  ],
-};
-
-/* ── Thematic findings ─────────────────────────────────────────────── */
-export const findings: FindingsContent = {
-  lead: [
-    'Reading across both interviews, we identified eight recurring themes. For each, we offer our interpretation, the evidence that supports it, and the broader social reality it points to. Where an experience was shared by both parents we say so; where it belonged to one, we mark it; and where a claim is our reading rather than theirs, we make that clear.',
-  ],
-  themes: [
-    {
-      id: 'safety',
-      number: 1,
-      title: 'Safety and constant parental fear',
-      interpretation:
-        'For both parents, fear is not an occasional feeling but a background condition of daily life — fear during medical emergencies, fear on unsafe roads, and fear for the future.',
-      evidence: [
-        { source: 'p01', point: 'Fear for her child’s safety during medical emergencies.' },
-        { source: 'p02', point: 'Fear caused by unsafe roads and crossings, and by a threat at school.' },
-      ],
-      socialReality:
-        'When environments and institutions are not made safe and accessible, families are left to absorb the risk themselves, and vigilance becomes a permanent labour.',
-    },
-    {
-      id: 'education',
-      number: 2,
-      title: 'Educational discrimination and bullying',
-      interpretation:
-        'School, which should be a place of belonging, became a source of harm for Participant 02’s child through bullying, humiliation, and an alleged threat from a teacher.',
-      evidence: [
-        { source: 'p02', point: 'Bullying, humiliation, and a fear of having to withdraw from school.' },
-        { source: 'p02', point: 'A need for patience and understanding for slower writing.' },
-      ],
-      socialReality:
-        'Exclusion in education is frequently a failure of attitude and accommodation, not of the learner. Small acts of patience or cruelty by adults shape whether a child can remain in school at all.',
-    },
-    {
-      id: 'communication',
-      number: 3,
-      title: 'Communication and caregiving difficulties',
-      interpretation:
-        'Where a child cannot easily communicate pain or need, care becomes a constant act of interpretation, carried mostly by the parent.',
-      evidence: [
-        { source: 'p01', point: 'Difficulty identifying internal pain; reading the smallest signs of distress.' },
-        { source: 'p01', point: 'Ongoing medication and close daily monitoring.' },
-      ],
-      socialReality:
-        'Caregiving of this intensity is real, skilled work, yet it is often unseen and unsupported by systems that assume a child can speak for themselves.',
-    },
-    {
-      id: 'medical',
-      number: 4,
-      title: 'Medical and financial burdens',
-      interpretation:
-        'Repeated follow-ups, medication, and the prospect of surgery place a financial weight on the family that cannot be met by effort alone.',
-      evidence: [
-        { source: 'p01', point: 'High treatment and surgery costs; reliance on outside help.' },
-        { source: 'p01', point: 'Dependence on government and community support to manage.' },
-      ],
-      socialReality:
-        'Access to care is shaped by cost. Without public and community support, the health of a child can come to depend on a family’s finances rather than on need.',
-    },
-    {
-      id: 'acceptance',
-      number: 5,
-      title: 'Acceptance of the child’s condition',
-      interpretation:
-        'Both parents described moving toward acceptance — not as defeat, but as a settled love that sees the child fully.',
-      evidence: [
-        { source: 'p01', point: 'A movement from shock toward acceptance after diagnosis.' },
-        { source: 'p02', point: 'Acceptance of the child’s condition and individuality.' },
-      ],
-      socialReality:
-        'Acceptance within a family often forms in spite of a wider society that still treats disability as a problem to be fixed rather than a life to be valued.',
-    },
-    {
-      id: 'family',
-      number: 6,
-      title: 'Family strength and parental advocacy',
-      interpretation:
-        'Family emerged as the most reliable source of strength, and the parents themselves as their child’s first and fiercest advocates.',
-      evidence: [
-        { source: 'p02', point: 'Family as a source of strength; active protection and advocacy.' },
-        { source: 'p01', point: 'Advocacy for the participation of PWD families in the community.' },
-      ],
-      socialReality:
-        'Much of the support that PWD children receive still depends on individual families. This is a testament to parental love and, at the same time, a sign of how much institutions leave undone.',
-    },
-    {
-      id: 'community',
-      number: 7,
-      title: 'Community participation and government support',
-      interpretation:
-        'Both accounts point to the importance of belonging — being part of the community — and to the real difference that public support can make.',
-      evidence: [
-        { source: 'p01', point: 'Reliance on government and community support; advocacy for inclusion.' },
-        { source: 'shared', point: 'A shared hope that PWD families are included rather than set apart.' },
-      ],
-      socialReality:
-        'Inclusion is not only a private matter of attitude; it depends on programs, services, and public commitment that make participation genuinely possible.',
-    },
-    {
-      id: 'inclusion',
-      number: 8,
-      title: 'Inclusion beyond pity or overprotection',
-      interpretation:
-        'The parents’ hopes were not for pity. They wanted their children to be understood, kept safe, and allowed to belong as themselves.',
-      evidence: [
-        { source: 'shared', point: 'A desire to be included in community life, not kept apart.' },
-        { source: 'p02', point: 'A child who can do much independently, held back mainly by others’ attitudes.' },
-      ],
-      socialReality:
-        'Both pity and overprotection can diminish a person. Genuine inclusion recognises capability and dignity, and removes barriers rather than lowering expectations.',
-    },
-  ],
-  limitation:
-    'A necessary limitation: this portfolio reflects the situated experiences of two parents, at one time, in one community. It does not, and cannot, represent all persons with disability or all families. Their accounts open a window onto real social realities; they do not close the question of what disability means for everyone.',
+    'Of everything we heard, this stayed with us most. The uncertainty of not knowing where it hurts — and the vigilance it demands — reveals caregiving as a form of love expressed through constant attention.',
 };
 
 /* ── Philosophical reflection ──────────────────────────────────────── */
@@ -365,12 +250,43 @@ export const philosophy: PhilosophyContent = {
   ],
   embodiedSpirit: [
     'We found it most truthful to understand the human person as an embodied spirit. A person is not a mind that happens to be attached to a body, nor a body that a mind merely inhabits. The body, the inner life, the intellect, the emotions, our relationships, and our capacity to make meaning together form one living person.',
-    'This matters directly for how we think about disability. A bodily condition is genuinely part of a person’s lived experience — it is not nothing, and pretending otherwise would not be respectful. But a condition of the body does not reduce the person’s humanity or worth. To be embodied is simply part of what it is to be human; it is not a lesser way of being human.',
+    'This matters directly for how we think about disability. A bodily condition is genuinely part of a person\u2019s lived experience — it is not nothing, and pretending otherwise would not be respectful. But a condition of the body does not reduce the person\u2019s humanity or worth. To be embodied is simply part of what it is to be human; it is not a lesser way of being human.',
     'It follows that people should not be measured by physical ability, independence, speed, productivity, or conformity. When we value persons in those terms, we mistake one part of a life for the whole of it. Much of the suffering the parents described came not from the body itself but from a world arranged as if only certain bodies and certain paces truly counted.',
   ],
   aristotleNote: [
-    'We connect this, carefully, to an Aristotelian understanding. Aristotle did not teach that a human being is a soul and a body loosely joined, or that the person can be neatly divided into separate parts of body, mind, and spirit. On his view, the soul is the form of a living body: body and soul together constitute one living human being.',
-    'We take from this not a technical doctrine but a caution against separation. If body and soul are not two unrelated objects but one unified life, then to touch a person’s body — through illness, through care, through cruelty, or through neglect — is to touch the whole person. That is why dignity cannot be located in ability alone.',
+    'We connect this, carefully, to an Aristotelian understanding. Aristotle understood the human person as a unity of body and soul. The soul is not simply a separate object inside the body, but the principle that makes the body a living human being.',
+    'We take from this not a technical doctrine but a caution against separation. If body and soul are not two unrelated objects but one unified life, then to touch a person\u2019s body — through illness, through care, through cruelty, or through neglect — is to touch the whole person. That is why dignity cannot be located in ability alone.',
+  ],
+  questions: [
+    {
+      question: 'What did we learn about being human?',
+      answer: [
+        'We have learned that courage is not optional in life. It is something every person must carry, especially when facing challenges that are not of their own making. But more than courage, this experience taught us the deeper importance of compassion — the willingness to understand what we do not personally live through.',
+        'The parents showed us that being human means being embedded in relationships of care, vigilance, and hope. Their daily strength was not extraordinary in the sense of being rare — it was extraordinary in the sense of being deeply, ordinarily human.',
+      ],
+    },
+    {
+      question: 'What social realities were revealed?',
+      answer: [
+        'The participants\u2019 stories revealed a difficult truth: PWDs often carry burdens they did not choose and cannot change, yet society makes them feel as though their very existence is something to be tolerated rather than embraced. This is not a personal failing on their part — it is a failure of the community around them.',
+        'What struck us most was a fear expressed by both parents: the fear of what happens to their child when they themselves are no longer there to protect them. This fear does not exist in isolation. It exists because our communities have not yet made PWDs feel truly safe, seen, or supported.',
+      ],
+    },
+    {
+      question: 'How did the experience challenge our previous beliefs?',
+      answer: [
+        'This study forced us to face a belief we did not fully realize we held. Like many others, we often unconsciously overlook or underestimate the capabilities of persons with disabilities, seeing them primarily as vulnerable and limited, rather than capable.',
+        'We also learned that excessive pity or overprotection is not the support PWDs need. Treating them as fragile or in constant need of rescue does not empower them — it makes them feel isolated. It silently builds up the very barriers we claim to want to break down.',
+      ],
+    },
+    {
+      question: 'How can society become more inclusive?',
+      answer: [
+        'Acceptance should not only be shown through words but also by changing the system to cater to the true needs of PWDs — holding institutions accountable for how they treat people with disabilities, especially in settings like schools.',
+        'Public spaces and communities need to be made physically and socially safer. A truly inclusive society invests in accessible infrastructure, safe crossings, reliable transportation, and accommodating public services, so that persons with disabilities are not forced to depend entirely on family members for their basic mobility and safety.',
+        'Finally, society must unlearn the habit of treating PWDs with either pity or exclusion, both of which strip away their dignity in different ways. Genuine inclusion means recognising PWDs as capable individuals with the same right to freedom, respect, and belonging as anyone else.',
+      ],
+    },
   ],
   concepts: [
     {
@@ -387,8 +303,8 @@ export const philosophy: PhilosophyContent = {
       name: 'Freedom',
       thesis: 'Freedom is a real opportunity, not an abstract permission.',
       body: [
-        'Freedom is more than the absence of chains. It is the genuine opportunity to participate, to learn, to move safely, to communicate, and to make one’s own choices. A right that cannot actually be exercised is freedom in name only.',
-        'The parents showed us how social systems either widen or narrow this freedom. Unsafe roads, an unwelcoming school, or the cost of care can quietly close off a child’s options; patient teachers, accessible support, and inclusive programs can open them. Freedom, in this sense, is something a community builds or withholds.',
+        'Freedom is more than the absence of chains. It is the genuine opportunity to participate, to learn, to move safely, to communicate, and to make one\u2019s own choices. A right that cannot actually be exercised is freedom in name only.',
+        'The parents showed us how social systems either widen or narrow this freedom. Unsafe roads, an unwelcoming school, or the cost of care can quietly close off a child\u2019s options; patient teachers, accessible support, and inclusive programs can open them. Freedom, in this sense, is something a community builds or withholds.',
       ],
     },
     {
@@ -396,7 +312,7 @@ export const philosophy: PhilosophyContent = {
       name: 'Empathy',
       thesis: 'Empathy is not pity.',
       body: [
-        'Pity looks down; empathy stands alongside. Pity reduces a person to their vulnerability and asks nothing of us but a feeling. Empathy begins by listening, recognises the other person’s own perspective, and responds with respect.',
+        'Pity looks down; empathy stands alongside. Pity reduces a person to their vulnerability and asks nothing of us but a feeling. Empathy begins by listening, recognises the other person\u2019s own perspective, and responds with respect.',
         'Our own listening had to be corrected in this direction. It would have been easy to feel sorry for the parents and stop there. Instead, they asked us — mostly without saying so — to see their children as whole persons, and to let that seeing shape how we act.',
       ],
     },
@@ -406,12 +322,62 @@ export const philosophy: PhilosophyContent = {
       thesis: 'Transcendence is the making of meaning, not the defeat of disability.',
       body: [
         'Transcendence does not mean overcoming or escaping disability, as if a person had to rise above who they are. It is the human capacity to create meaning, to form relationships, to make commitments, to advocate, to hope, and to move beyond the limiting judgements others impose.',
-        'We saw transcendence in the parents’ steady advocacy and in their refusal to let fear have the last word. And we saw it as a possibility for their children — not in spite of their lives, but within them.',
+        'We saw transcendence in the parents\u2019 steady advocacy and in their refusal to let fear have the last word. And we saw it as a possibility for their children — not in spite of their lives, but within them.',
       ],
     },
   ],
+  themes: [
+    {
+      id: 'safety',
+      title: 'Safety and constant parental fear',
+      interpretation:
+        'For both parents, fear is not an occasional feeling but a background condition of daily life — fear during medical emergencies, fear on unsafe roads, and fear for the future.',
+      socialReality:
+        'When environments and institutions are not made safe and accessible, families are left to absorb the risk themselves, and vigilance becomes a permanent labour.',
+    },
+    {
+      id: 'education',
+      title: 'Educational discrimination and bullying',
+      interpretation:
+        'School, which should be a place of belonging, became a source of harm for Participant 02\u2019s child through bullying, humiliation, and an alleged threat from a teacher.',
+      socialReality:
+        'Exclusion in education is frequently a failure of attitude and accommodation, not of the learner. Small acts of patience or cruelty by adults shape whether a child can remain in school at all.',
+    },
+    {
+      id: 'communication',
+      title: 'Communication and caregiving difficulties',
+      interpretation:
+        'Where a child cannot easily communicate pain or need, care becomes a constant act of interpretation, carried mostly by the parent.',
+      socialReality:
+        'Caregiving of this intensity is real, skilled work, yet it is often unseen and unsupported by systems that assume a child can speak for themselves.',
+    },
+    {
+      id: 'medical',
+      title: 'Medical and financial burdens',
+      interpretation:
+        'Repeated follow-ups, medication, and the prospect of surgery place a financial weight on the family that cannot be met by effort alone.',
+      socialReality:
+        'Access to care is shaped by cost. Without public and community support, the health of a child can come to depend on a family\u2019s finances rather than on need.',
+    },
+    {
+      id: 'acceptance',
+      title: 'Acceptance of the child\u2019s condition',
+      interpretation:
+        'Both parents described moving toward acceptance — not as defeat, but as a settled love that sees the child fully.',
+      socialReality:
+        'Acceptance within a family often forms in spite of a wider society that still treats disability as a problem to be fixed rather than a life to be valued.',
+    },
+    {
+      id: 'family',
+      title: 'Family strength and parental advocacy',
+      interpretation:
+        'Family emerged as the most reliable source of strength, and the parents themselves as their child\u2019s first and fiercest advocates.',
+      socialReality:
+        'Much of the support that PWD children receive still depends on individual families. This is a testament to parental love and, at the same time, a sign of how much institutions leave undone.',
+    },
+  ],
   realization:
-    'Our central realisation is this: the condition itself is not always the greatest source of suffering. Impatience, discrimination, unsafe environments, inaccessible support, and simple misunderstanding can intensify a person’s limitations far beyond anything the body imposes. Some of the heaviest barriers are the ones a community can choose to remove.',
+    'Our central realisation is this: the condition itself is not always the greatest source of suffering. Impatience, discrimination, unsafe environments, inaccessible support, and simple misunderstanding can intensify a person\u2019s limitations far beyond anything the body imposes. Some of the heaviest barriers are the ones a community can choose to remove.',
 };
 
 /* ── Personal reflections ──────────────────────────────────────────── */
@@ -419,125 +385,85 @@ export const personalReflections: readonly PersonalReflection[] = [
   {
     id: 'kate',
     name: 'Kate Chloe Delos Reyes',
-    standfirst:
-      'On learning to replace sympathy with attention.',
+    standfirst: 'On learning to replace sympathy with attention.',
     pullQuote:
       'I came ready to feel sorry for someone. I left having been taught how to pay attention instead.',
     arc: {
       before:
-        'Before the interview, I thought of disability mainly as something to feel sorry about. I imagined that the kindest response was sympathy, and I assumed I already understood what these families needed.',
+        'Before the interview, I thought of disability mainly as something to feel sorry about. I imagined that the kindest response was sympathy, and I assumed I already understood what these families needed. I was cautious around people with special needs because I was afraid of saying the wrong thing.',
       challenged:
-        'Listening to Participant 01 challenged that. Her care for her child was not sad; it was skilled, patient, and clear-eyed. My sympathy suddenly felt shallow next to the ordinary strength she described.',
+        'Listening to Participant 01 challenged that. Her care for her child was not sad; it was skilled, patient, and clear-eyed. My sympathy suddenly felt shallow next to the ordinary strength she described. I also learned that the parents themselves have a hard time understanding what their child wants, and I started to wonder how frustrating it can get for the children.',
       understand:
-        'I now understand that respect asks more of me than pity does. To honour someone, I have to see their whole life — their capability, their love, and their hopes — and not only their difficulty.',
+        'I now understand that respect asks more of me than pity does. To honour someone, I have to see their whole life — their capability, their love, and their hopes — and not only their difficulty. They are fun to talk to, they are funny, and they are very talented. It is embarrassing to even share my first thought about them now.',
       action:
-        'I will catch myself when I start to pity, and turn that impulse into attention: asking, listening, and following the person’s own lead before I decide what they need.',
+        'I will catch myself when I start to pity, and turn that impulse into attention: asking, listening, and following the person\u2019s own lead before I decide what they need. I want them to feel that they truly belong in our community.',
     },
+    commitments: [
+      'I will talk to them, socialise, and overcome the constant anxiety of saying the wrong words — while still being mindful.',
+      'I will make sure they feel protected at all times and won\u2019t let anyone discriminate against them.',
+      'I will try my very hardest every day to understand their situation instead of concluding things right away.',
+    ],
   },
   {
     id: 'jordin',
     name: 'Jordin Rose Dela Cruz',
-    standfirst:
-      'On discovering that the hardest barriers are the ones we build.',
+    standfirst: 'On discovering that the hardest barriers are the ones we build.',
     pullQuote:
       'The cruelty a child meets at school is not caused by disability. It is a choice other people make.',
     arc: {
       before:
-        'I used to assume that the difficulties faced by persons with disability came almost entirely from their condition. I thought of the barriers as medical, and therefore as no one’s fault.',
+        'I used to assume that the difficulties faced by persons with disability came almost entirely from their condition. I thought of the barriers as medical, and therefore as no one\u2019s fault. I expected the conversation to be heavy or hard to handle.',
       challenged:
-        'Participant 02’s account changed that. Her child could do a great deal independently, yet still faced bullying, humiliation, and unsafe roads. The heaviest obstacles were made by other people and by an environment that did not care.',
+        'Participant 02\u2019s account changed that. Her child could do a great deal independently, yet still faced bullying, humiliation, and unsafe roads. The heaviest obstacles were made by other people and by an environment that did not care.',
       understand:
-        'I now understand that many barriers are social, and that social barriers can be removed. What a community tolerates — cruelty, inaccessibility, indifference — is a choice, and choices can change.',
+        'I now understand that many barriers are social, and that social barriers can be removed. What a community tolerates — cruelty, inaccessibility, indifference — is a choice, and choices can change. The interview taught me about human dignity.',
       action:
         'I will not stay silent when I see someone humiliated for being different, and I will support the small, practical changes that make a school or a street safer for everyone.',
     },
+    commitments: [
+      'I will be more open, more respectful, and more willing to listen instead of being afraid.',
+      'I will treat people naturally and sincerely, not just carefully.',
+      'I will speak up when I see cruelty or exclusion, even when staying silent is easier.',
+    ],
   },
   {
     id: 'rodger',
     name: 'Rodger C. Pacumba Jr.',
-    standfirst:
-      'On the meaning of dignity when a life needs constant care.',
+    standfirst: 'On the meaning of dignity when a life needs constant care.',
     pullQuote:
-      'A person’s worth was never a question of what they could do without help.',
+      'A person\u2019s worth was never a question of what they could do without help.',
     arc: {
       before:
-        'Before this activity, I quietly measured people by how independent and capable they were. Without meaning to, I treated productivity as though it were the same thing as human worth.',
+        'Before this activity, I quietly measured people by how independent and capable they were. Without meaning to, I treated productivity as though it were the same thing as human worth. I also assumed disability was mostly a mental thing.',
       challenged:
-        'The fear Participant 01 shared — about what would happen to her child when she is gone — undid that assumption. Her child’s worth, to her, had nothing to do with independence. It was simply, unconditionally there.',
+        'The two cases were nothing alike. One participant could handle most daily tasks by himself, but he still got bullied and treated unfairly in school. The other needed a lot more help because of communication difficulties and serious health problems. The disability itself is not always the hardest part. A lot of the struggle comes from other people.',
       understand:
-        'I now understand human dignity as inherent. It is not earned through ability, speed, or self-sufficiency, and it cannot be lost by needing care. A person who depends on others is no less a person.',
+        'I now understand human dignity as inherent. It is not earned through ability, speed, or self-sufficiency, and it cannot be lost by needing care. A person who depends on others is no less a person. The parents carry a lot — from money problems to the physical work of caregiving — and they do all that while still trying to protect their child.',
       action:
         'I will speak and write about disability in language that centres the person, and I will make room for classmates who need support, treating that support as ordinary rather than exceptional.',
     },
+    commitments: [
+      'I will listen to what PWDs actually need instead of deciding for them.',
+      'I will stop treating their condition as the only thing worth knowing about them.',
+      'I will make sure PWD classmates are actually included in activities and group work, not just present.',
+      'I will support programs that let PWDs and their families take part in the community.',
+    ],
   },
 ];
-
-/* ── Commitments ───────────────────────────────────────────────────── */
-export const commitments: CommitmentsContent = {
-  lead: [
-    'Reflection that changes nothing is incomplete. The following commitments are deliberately small and specific — the kind of things three students can actually do — because we would rather promise what we can keep than announce what we cannot.',
-  ],
-  turningStatement:
-    'We cannot fix the systems that make disability harder to live with. But we can change how we listen, how we speak, and how we treat the people around us — and that is where inclusion begins.',
-  commitments: [
-    {
-      title: 'Listen before assuming',
-      detail:
-        'We will ask and listen before deciding what another person needs, and let them correct our picture of their life.',
-    },
-    {
-      title: 'Use person-centred language',
-      detail:
-        'We will speak of persons with disability with care, putting the person first and dropping words that reduce anyone to a diagnosis.',
-    },
-    {
-      title: 'Include classmates meaningfully',
-      detail:
-        'We will make sure PWD classmates are genuinely part of group work and activities, not merely present in the room.',
-    },
-    {
-      title: 'Speak up against bullying',
-      detail:
-        'We will not stay silent when someone is humiliated for being different, whether by a classmate or by an adult.',
-    },
-    {
-      title: 'Support safe, accessible spaces',
-      detail:
-        'We will back practical changes that make our school and its surroundings safer and easier to move through.',
-    },
-    {
-      title: 'Share accurate understanding',
-      detail:
-        'We will pass on what we learned honestly, correcting the myths and pity that so often stand in for understanding.',
-    },
-    {
-      title: 'Support inclusive community programs',
-      detail:
-        'We will encourage and take part in programs that include PWDs and their families in community life.',
-    },
-    {
-      title: 'Avoid both exclusion and excessive pity',
-      detail:
-        'We will resist the two easy failures — leaving people out, and smothering them with pity — and aim instead for respect.',
-    },
-  ],
-  caveat:
-    'These are commitments, not solutions. Three students cannot resolve the systemic barriers that persons with disability face. What we can do is act consistently, in the places we actually stand, and refuse to look away.',
-};
 
 /* ── Conclusion ────────────────────────────────────────────────────── */
 export const conclusion: ConclusionContent = {
   body: [
-    'When we set out, we expected to learn about disability. What we learned, more deeply, was about being human — about how much of a person’s life is carried in relationships, in vigilance, in hope, and in the daily work of care.',
+    'When we set out, we expected to learn about disability. What we learned, more deeply, was about being human — about how much of a person\u2019s life is carried in relationships, in vigilance, in hope, and in the daily work of care.',
     'The two parents changed our understanding by refusing the roles we had half-prepared for them. They were not objects of pity or figures of inspiration. They were people describing their lives plainly, and asking, in effect, to be understood rather than admired from a distance.',
-    'Philosophical reflection was necessary because description alone would have let us keep our assumptions. Thinking carefully about dignity, freedom, empathy, and transcendence forced us to see that a person’s worth is not a function of ability, and that many of the barriers we observed are made by people and can be unmade by them.',
+    'Philosophical reflection was necessary because description alone would have let us keep our assumptions. Thinking carefully about dignity, freedom, empathy, and transcendence forced us to see that a person\u2019s worth is not a function of ability, and that many of the barriers we observed are made by people and can be unmade by them.',
     'Inclusion, we now believe, requires both personal change and structural responsibility. It asks each of us to listen and act differently, and it asks our institutions to build environments in which persons with disability and their families can genuinely belong.',
   ],
   finalStatement:
     'We end not with a slogan but with a commitment to keep listening — and to let what we hear continue to change how we live alongside one another.',
 };
 
-/* ── References & documentation ────────────────────────────────────── */
+/* ── References ────────────────────────────────────────────────────── */
 export const references: ReferencesContent = {
   intro:
     'The sources below informed this portfolio. The two interviews are cited as personal communications, in keeping with our confidentiality commitment; no identifying detail is disclosed.',
@@ -563,13 +489,13 @@ export const references: ReferencesContent = {
       id: 'participant-01',
       alt: 'Approved documentation photograph of Parent Participant 01 during the interview.',
       caption:
-        'Parent Participant 01, photographed with permission during the interview. Shared in keeping with our confidentiality commitment.',
+        'Parent Participant 01, photographed with permission during the interview.',
     },
     {
       id: 'participant-02',
       alt: 'Approved documentation photograph of Parent Participant 02 during the interview.',
       caption:
-        'Parent Participant 02, photographed with permission during the interview. Shared in keeping with our confidentiality commitment.',
+        'Parent Participant 02, photographed with permission during the interview.',
     },
     {
       id: 'setting',
@@ -577,17 +503,7 @@ export const references: ReferencesContent = {
       caption:
         'The community setting in which the interviews were held, on July 9, 2026.',
     },
-  ],
-  contributions: [
-    { name: 'Kate Chloe Delos Reyes', role: 'Interviewing, transcription review, and the reflection on empathy.' },
-    { name: 'Jordin Rose Dela Cruz', role: 'Thematic analysis, social-realities interpretation, and documentation.' },
-    { name: 'Rodger C. Pacumba Jr.', role: 'Philosophical reflection, references, and editing.' },
-  ],
+  ] as readonly DocumentationFigure[],
   confidentiality:
-    'Confidentiality statement: The identities of the participants and their children are protected throughout this portfolio. Names have been replaced with anonymous identifiers, and no filename, caption, or description discloses an identity. Photographs are shown only with permission.',
-  methodology: [
-    'Two semi-structured interviews were conducted with two parents of children with disabilities within their barangay community on July 9, 2026.',
-    'With the participants’ permission, the conversations were recorded, transcribed, and reviewed for accuracy, with all identifying details removed. We then analysed the transcripts for recurring themes and reflected on the social and philosophical questions they raised.',
-    'This is a small, qualitative inquiry. Its findings are situated and interpretive, and are not offered as generalisations about all persons with disability.',
-  ],
+    'Confidentiality statement: The identities of the participants and their children are protected throughout this portfolio. Names have been replaced with anonymous identifiers, and no filename, caption, or description discloses an identity.',
 };

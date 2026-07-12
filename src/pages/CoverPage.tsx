@@ -7,7 +7,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 const metadata: { label: string; value: string }[] = [
   { label: 'Grade & Section', value: cover.gradeSection },
   { label: 'Subject', value: cover.subject },
-  { label: 'Submitted', value: cover.submission },
+  { label: 'Date', value: cover.submission },
 ];
 
 const containerVariants = {
@@ -29,13 +29,9 @@ export function CoverPage() {
         initial={reducedMotion ? false : 'hidden'}
         animate="show"
       >
-        <motion.p variants={item} className="font-sans text-kicker uppercase text-ink-faint">
-          {cover.method}
-        </motion.p>
-
         <motion.h1
           variants={item}
-          className="mt-6 max-w-4xl text-display-2xl text-ink"
+          className="max-w-4xl text-display-2xl text-ink"
         >
           {cover.title}
         </motion.h1>
@@ -47,28 +43,13 @@ export function CoverPage() {
           {cover.subtitle}
         </motion.p>
 
-        <motion.p
-          variants={item}
-          className="mt-6 max-w-(--spacing-measure-tight) font-serif text-reading leading-relaxed text-ink-muted"
-        >
-          A student inquiry built on two interviews with parents of children with
-          disabilities — an attempt to listen closely, and to reflect on what their
-          experiences reveal about being human.
-        </motion.p>
-
-        <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <motion.div variants={item} className="mt-9">
           <Link
             to="/introduction"
             className="group inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 font-sans text-label font-medium text-canvas transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
           >
             Explore the portfolio
             <ArrowRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
-          </Link>
-          <Link
-            to="/references"
-            className="font-sans text-label text-ink-muted underline decoration-hairline underline-offset-4 transition-colors hover:text-ink hover:decoration-ink-faint"
-          >
-            References &amp; documentation
           </Link>
         </motion.div>
 

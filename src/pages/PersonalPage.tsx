@@ -7,10 +7,9 @@ export function PersonalPage() {
   return (
     <Page labelledBy="page-title" width="wide" currentKey="personal">
       <SectionHeader
-        chapter="Chapter VII"
-        title="Individual Reflections"
+        title="Personal Reflection"
         id="page-title"
-        standfirst="Three researchers, three distinct transformations. Each reflection follows the same arc — before listening, what was challenged, what is now understood, and what we will do differently — in each writer's own voice."
+        standfirst="Three researchers, three distinct transformations. Each reflection follows its own arc — and ends with concrete commitments to action."
       />
 
       {/* In-page selector for the three reflections. */}

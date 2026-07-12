@@ -22,7 +22,6 @@ export interface CoverMeta {
   gradeSection: string;
   subject: string;
   submission: string;
-  method: string;
 }
 
 /* ── Introduction ──────────────────────────────────────────────────── */
@@ -49,62 +48,43 @@ export interface EthicPoint {
   detail: string;
 }
 
+export interface ParticipantBrief {
+  alias: string;
+  description: string;
+}
+
 export interface EngagementContent {
   lead: Paragraphs;
   interviewDate: string;
   setting: string;
-  participantsNote: string;
+  participants: readonly ParticipantBrief[];
   process: readonly ProcessStep[];
   ethics: readonly EthicPoint[];
 }
 
-/* ── Participants ──────────────────────────────────────────────────── */
-export interface ParticipantProfile {
+/* ── Interview Highlights ──────────────────────────────────────────── */
+export interface InterviewQuotation {
+  /** The actual words in the participant's original language (Filipino/Taglish). */
+  text: string;
+  speaker: Exclude<ParticipantId, 'shared'>;
+  /** Brief English context for the quotation. */
+  context: string;
+  /** Brief English insight gained from this quotation. */
+  insight: string;
+}
+
+export interface ParticipantHighlight {
   id: Exclude<ParticipantId, 'shared'>;
   alias: string;
-  summary: string;
-  realities: readonly string[];
-  interpretation: string;
-  figureId: string;
+  summary: Paragraphs;
+  quotations: readonly InterviewQuotation[];
 }
 
-/* ── Voices & quotations ───────────────────────────────────────────── */
-export interface Quotation {
-  /** The words as approved for public use (English rendering). */
-  text: string;
-  /** Optional Filipino original where it carries the participant's voice. */
-  original?: string;
-  speaker: Exclude<ParticipantId, 'shared'>;
-  /** Context that must accompany the quote so it is never misread. */
-  context: string;
-}
-
-export interface VoicesContent {
+export interface HighlightsContent {
   lead: Paragraphs;
-  featured: Quotation;
+  participants: readonly ParticipantHighlight[];
+  featuredQuotation: InterviewQuotation;
   featuredFraming: string;
-  secondary: readonly Quotation[];
-}
-
-/* ── Thematic findings ─────────────────────────────────────────────── */
-export interface ThemeEvidence {
-  source: ParticipantId;
-  point: string;
-}
-
-export interface Theme {
-  id: string;
-  number: number;
-  title: string;
-  interpretation: string;
-  evidence: readonly ThemeEvidence[];
-  socialReality: string;
-}
-
-export interface FindingsContent {
-  lead: Paragraphs;
-  themes: readonly Theme[];
-  limitation: string;
 }
 
 /* ── Philosophical reflection ──────────────────────────────────────── */
@@ -115,11 +95,23 @@ export interface Concept {
   body: Paragraphs;
 }
 
+export interface ThemeSummary {
+  id: string;
+  title: string;
+  interpretation: string;
+  socialReality: string;
+}
+
 export interface PhilosophyContent {
   lead: Paragraphs;
   embodiedSpirit: Paragraphs;
   aristotleNote: Paragraphs;
+  questions: readonly {
+    question: string;
+    answer: Paragraphs;
+  }[];
   concepts: readonly Concept[];
+  themes: readonly ThemeSummary[];
   realization: string;
 }
 
@@ -137,19 +129,7 @@ export interface PersonalReflection {
   standfirst: string;
   pullQuote: string;
   arc: ReflectionArc;
-}
-
-/* ── Commitments ───────────────────────────────────────────────────── */
-export interface Commitment {
-  title: string;
-  detail: string;
-}
-
-export interface CommitmentsContent {
-  lead: Paragraphs;
-  turningStatement: string;
-  commitments: readonly Commitment[];
-  caveat: string;
+  commitments: readonly string[];
 }
 
 /* ── Conclusion ────────────────────────────────────────────────────── */
@@ -158,20 +138,14 @@ export interface ConclusionContent {
   finalStatement: string;
 }
 
-/* ── References & documentation ────────────────────────────────────── */
+/* ── References ────────────────────────────────────────────────────── */
 export interface Reference {
   citation: string;
   type: 'personalCommunication' | 'philosophical' | 'academic';
 }
 
-export interface Contribution {
-  name: string;
-  role: string;
-}
-
 export interface DocumentationFigure {
   id: string;
-  /** Path under the public base, or undefined until real photos are added. */
   src?: string;
   alt: string;
   caption: string;
@@ -180,10 +154,8 @@ export interface DocumentationFigure {
 export interface ReferencesContent {
   intro: string;
   references: readonly Reference[];
-  documentation: readonly DocumentationFigure[];
-  contributions: readonly Contribution[];
+  documentation?: readonly DocumentationFigure[];
   confidentiality: string;
-  methodology: Paragraphs;
 }
 
 /* ── Section registry (drives routing + navigation) ────────────────── */

@@ -8,8 +8,7 @@ export function IntroductionPage() {
   return (
     <Page labelledBy="page-title" width="wide" currentKey="introduction">
       <SectionHeader
-        chapter="Chapter I"
-        title="Why We Listened"
+        title="Introduction"
         id="page-title"
         standfirst="Before we could reflect on the lived experiences of persons with disability, we had to learn to listen — and to notice how much our assumptions had been standing in for understanding."
       />

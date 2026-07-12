@@ -12,12 +12,9 @@ import { RouteAnnouncer } from './components/shell/RouteAnnouncer';
 import { CoverPage } from './pages/CoverPage';
 import { IntroductionPage } from './pages/IntroductionPage';
 import { EngagementPage } from './pages/EngagementPage';
-import { ParticipantsPage } from './pages/ParticipantsPage';
-import { VoicesPage } from './pages/VoicesPage';
-import { FindingsPage } from './pages/FindingsPage';
+import { HighlightsPage } from './pages/HighlightsPage';
 import { PhilosophyPage } from './pages/PhilosophyPage';
 import { PersonalPage } from './pages/PersonalPage';
-import { CommitmentsPage } from './pages/CommitmentsPage';
 import { ConclusionPage } from './pages/ConclusionPage';
 import { ReferencesPage } from './pages/ReferencesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
@@ -26,12 +23,9 @@ const routeElements = [
   { path: '/', element: <CoverPage /> },
   { path: '/introduction', element: <IntroductionPage /> },
   { path: '/engagement', element: <EngagementPage /> },
-  { path: '/participants', element: <ParticipantsPage /> },
-  { path: '/voices', element: <VoicesPage /> },
-  { path: '/findings', element: <FindingsPage /> },
+  { path: '/interview-highlights', element: <HighlightsPage /> },
   { path: '/philosophical-reflection', element: <PhilosophyPage /> },
   { path: '/personal-reflections', element: <PersonalPage /> },
-  { path: '/commitments', element: <CommitmentsPage /> },
   { path: '/conclusion', element: <ConclusionPage /> },
   { path: '/references', element: <ReferencesPage /> },
 ];

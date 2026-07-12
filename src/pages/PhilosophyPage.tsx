@@ -8,7 +8,6 @@ export function PhilosophyPage() {
   return (
     <Page labelledBy="page-title" width="wide" currentKey="philosophy">
       <SectionHeader
-        chapter="Chapter VI"
         title="Philosophical Reflection"
         id="page-title"
         size="2xl"
@@ -19,6 +18,7 @@ export function PhilosophyPage() {
         <Prose paragraphs={philosophy.lead} variant="lead" />
       </div>
 
+      {/* The human person as embodied spirit */}
       <section aria-labelledby="embodied-heading" className="mt-16 border-t border-hairline pt-12">
         <h2 id="embodied-heading" className="max-w-3xl text-display-lg text-ink">
           The human person as an embodied spirit
@@ -28,6 +28,7 @@ export function PhilosophyPage() {
         </div>
       </section>
 
+      {/* Aristotle note */}
       <aside
         aria-labelledby="aristotle-heading"
         className="mt-12 rounded-2xl border border-hairline bg-surface-1 p-7 sm:p-9"
@@ -40,7 +41,23 @@ export function PhilosophyPage() {
         </div>
       </aside>
 
-      <section aria-labelledby="concepts-heading" className="mt-16">
+      {/* Philosophical questions */}
+      <section aria-labelledby="questions-heading" className="mt-16 border-t border-hairline pt-12">
+        <h2 id="questions-heading" className="text-display-lg text-ink">
+          What the interviews revealed
+        </h2>
+        <div className="mt-8 space-y-12">
+          {philosophy.questions.map((q, i) => (
+            <article key={i} className="grid gap-4 lg:grid-cols-[minmax(0,16rem)_1fr] lg:gap-12">
+              <h3 className="text-display-md text-ink lg:sticky lg:top-8 lg:self-start">{q.question}</h3>
+              <Prose paragraphs={q.answer} />
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Four concepts */}
+      <section aria-labelledby="concepts-heading" className="mt-16 border-t border-hairline pt-12">
         <h2 id="concepts-heading" className="text-display-lg text-ink">
           Four concepts
         </h2>
@@ -55,9 +72,33 @@ export function PhilosophyPage() {
         </div>
       </section>
 
-      {/* The group's central realisation — typographic emphasis, deliberately
-          NOT a gradient spotlight (those are reserved for Voices and
-          Commitments). */}
+      {/* Thematic findings — integrated here instead of a separate page */}
+      <section aria-labelledby="themes-heading" className="mt-16 border-t border-hairline pt-12">
+        <h2 id="themes-heading" className="text-display-lg text-ink">
+          Thematic findings
+        </h2>
+        <p className="mt-4 max-w-(--spacing-measure) font-serif text-reading leading-relaxed text-ink-muted">
+          Six themes emerged across both interviews. Each points to a broader social reality.
+        </p>
+        <div className="mt-10 space-y-10">
+          {philosophy.themes.map((theme) => (
+            <article key={theme.id} className="border-t border-hairline pt-8 first:border-t-0 first:pt-0">
+              <h3 className="text-display-md text-ink">{theme.title}</h3>
+              <p className="mt-4 max-w-(--spacing-measure) font-serif text-reading leading-relaxed text-ink-muted">
+                {theme.interpretation}
+              </p>
+              <div className="mt-4 rounded-xl border border-hairline bg-surface-1 p-5">
+                <p className="font-sans text-kicker uppercase text-ink-faint">Social reality</p>
+                <p className="mt-2 font-serif text-reading leading-relaxed text-ink">
+                  {theme.socialReality}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Central realisation */}
       <section aria-labelledby="realization-heading" className="mt-16 border-t border-hairline pt-12">
         <h2 id="realization-heading" className="font-sans text-kicker uppercase text-ink-faint">
           Our central realisation
