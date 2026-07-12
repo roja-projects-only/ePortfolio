@@ -50,7 +50,7 @@ export function EngagementPage() {
                     src={figure.src}
                     alt={figure.alt}
                     caption={figure.caption}
-                    aspect="aspect-[5/4]"
+                    aspect="aspect-[4/3]"
                     className="mb-6"
                   />
                 )}

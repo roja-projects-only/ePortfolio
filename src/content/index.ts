@@ -477,12 +477,14 @@ export const references: ReferencesContent = {
   documentation: [
     {
       id: 'participant-01',
+      src: 'participant-1.jpg',
       alt: 'Approved documentation photograph of Parent Participant 01 during the interview.',
       caption:
         'Parent Participant 01, photographed with permission during the interview.',
     },
     {
       id: 'participant-02',
+      src: 'participant-2.jpg',
       alt: 'Approved documentation photograph of Parent Participant 02 during the interview.',
       caption:
         'Parent Participant 02, photographed with permission during the interview.',

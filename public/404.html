@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ePortfolio</title>
+    <script>
+      (function () {
+        var segment = window.location.pathname.replace(/\/404\.html$/, '');
+        var rest = segment.replace(/^\/[^\/]+/, '') || '/';
+        var search = '?/' + rest.replace(/&/g, '~and~') + window.location.search;
+        window.location.replace(segment.replace(/\/[^\/]*$/, '/index.html') + search + window.location.hash);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
