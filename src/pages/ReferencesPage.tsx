@@ -80,12 +80,7 @@ export function ReferencesPage() {
                           {reference.description}
                         </p>
                       )}
-                      <div className="flex items-center gap-3 pt-0.5">
-                        {reference.platform && (
-                          <span className="font-sans text-xs text-ink-faint">
-                            {reference.platform}
-                          </span>
-                        )}
+                      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 pt-0.5">
                         {reference.url && (
                           <a
                             href={reference.url}
@@ -96,6 +91,11 @@ export function ReferencesPage() {
                             View document
                             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                           </a>
+                        )}
+                        {reference.platform && (
+                          <span className="font-sans text-xs text-ink-faint">
+                            {reference.platform}
+                          </span>
                         )}
                       </div>
                     </li>
