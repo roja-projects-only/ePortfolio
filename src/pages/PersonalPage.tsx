@@ -10,13 +10,23 @@ import { cn } from '../lib/cn';
  * Per-chapter presentation. Content lives in `personalReflections` (locked);
  * only the editorial scaffolding — monogram, numeral, ordinal, and the
  * member's scoped accent hue — is defined here. Order matches the content
- * array: Kate (blue), Jordin (green), Rodger (gold).
+ * array: Kate (gold), Jordin (blue), Rodger (green).
  */
 const chapters = [
   {
     number: '01',
     monogram: 'KCD',
     ordinal: '1 of 3',
+    rule: 'bg-accent-gold',
+    numeral: 'text-accent-gold/22',
+    monoText: 'text-accent-gold',
+    monoBorder: 'border-accent-gold/45',
+    rosterNum: 'text-accent-gold',
+  },
+  {
+    number: '02',
+    monogram: 'JRD',
+    ordinal: '2 of 3',
     rule: 'bg-accent',
     numeral: 'text-accent/20',
     monoText: 'text-accent',
@@ -24,24 +34,14 @@ const chapters = [
     rosterNum: 'text-accent',
   },
   {
-    number: '02',
-    monogram: 'JRD',
-    ordinal: '2 of 3',
+    number: '03',
+    monogram: 'RCP',
+    ordinal: '3 of 3',
     rule: 'bg-accent-green',
     numeral: 'text-accent-green/20',
     monoText: 'text-accent-green',
     monoBorder: 'border-accent-green/40',
     rosterNum: 'text-accent-green',
-  },
-  {
-    number: '03',
-    monogram: 'RCP',
-    ordinal: '3 of 3',
-    rule: 'bg-accent-gold',
-    numeral: 'text-accent-gold/22',
-    monoText: 'text-accent-gold',
-    monoBorder: 'border-accent-gold/45',
-    rosterNum: 'text-accent-gold',
   },
 ] as const;
 
