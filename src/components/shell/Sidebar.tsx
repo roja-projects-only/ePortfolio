@@ -52,7 +52,7 @@ export function Sidebar({ activeKey, activeIndex, collapsed, onToggleCollapsed }
       {/* Table of contents */}
       <nav aria-label="Portfolio sections" className="mt-7 min-h-0 flex-1 overflow-y-auto scrollbar-none">
         <ol className="space-y-0.5">
-          {sections.map((section) => {
+          {sections.map((section, i) => {
             const isActive = section.key === activeKey;
             return (
               <li key={section.key} className="relative">
@@ -79,7 +79,13 @@ export function Sidebar({ activeKey, activeIndex, collapsed, onToggleCollapsed }
                       />
                     )
                   )}
-                  {!collapsed && <span className="relative truncate">{section.label}</span>}
+                  {collapsed ? (
+                    <span className="relative font-sans text-kicker tabular-nums">
+                      {i + 1}
+                    </span>
+                  ) : (
+                    <span className="relative truncate">{section.label}</span>
+                  )}
                 </NavLink>
               </li>
             );
