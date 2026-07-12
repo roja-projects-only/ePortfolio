@@ -137,7 +137,13 @@ export interface ConclusionContent {
 /* ── References ────────────────────────────────────────────────────── */
 export interface Reference {
   citation: string;
-  type: 'personalCommunication' | 'philosophical' | 'academic';
+  type: 'personalCommunication' | 'philosophical' | 'academic' | 'supportingDocument';
+  /** External URL for supporting documents. */
+  url?: string;
+  /** Hosting platform (e.g., "Google Docs", "Microsoft OneDrive"). */
+  platform?: string;
+  /** Brief description of the document's contents or role in the project. */
+  description?: string;
 }
 
 export interface DocumentationFigure {

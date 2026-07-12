@@ -419,9 +419,9 @@ export const personalReflections: readonly PersonalReflection[] = [
     id: 'kate',
     name: 'Kate Chloe Delos Reyes',
     paragraphs: [
-      'Before conducting the interview or formatting the paper, I’ve always thought that people with disabilities are incapable of taking care of themselves. I know that there are PWDs who work and provide for themselves, but it must be very challenging. I’m not proud of how I think, but there are times when I get very cautious when there are people with special needs, because in some cases, they get very aggressive and often throw tantrums. They can be hard to understand sometimes because they have lots of trouble expressing what they feel or think about, and I know that it can feel frustrating for the people around them that wants to understand them. I feel the same way. I find it very challenging to properly communicate with people who have special needs and disabilities. I always get scared to say the wrong words or express the wrong idea whenever I am talking to someone who has special needs or disabilities. I’ve always been afraid of mistakenly addressing them the wrong way, and I have always seen them as vulnerable and sensitive',
-      'But after the Interview, I have picked up lots of lessons that helped me bend my belief and mindset. Their parents explained that even the parents themselves have a hard time trying to understand what their child wants, and I started to wonder how frustrating it can get for their children, specifically. I can\'t imagine trying to voice out your concerns, but you aren\'t heard or understood. I also learned that they are as capable as “normal” people. It\'s just that society made us think that they are too vulnerable and failed to see their potential, just because they needed extra assistance. It made us think that understanding and truly setting an eye for them is just a hassle, and we would rather keep them where they are. I realized that I’ve been walking on eggshells around them too much. They are fun to talk to, they are funny, and they are very talented. It is very embarrassing to even share my first thought about them now.',
-      'From now on, I won\'t conclude things right away. I would talk to them, socialize, and overcome the constant anxiety of saying the wrong words to them. I would still be mindful, but I would also learn how to be more casual whenever I’m talking to them. I want them to feel that they truly belong in our community and that there is no need to become embarrassed or afraid. I would make sure that they feel protected at all times and won\'t let anyone discriminate against them. I may not truly understand what it\'s like to be a person with disability or special needs, but I would try my very hardest every day to understand their situation every time.',
+      'Before conducting the interview or formatting the paper, I\u2019ve always thought that people with disabilities are incapable of taking care of themselves. I know that there are PWDs who work and provide for themselves, but it must be very challenging. I\u2019m not proud of how I think, but there are times when I get very cautious when there are people with special needs, because in some cases, they get very aggressive and often throw tantrums. They can be hard to understand sometimes because they have lots of trouble expressing what they feel or think about, and I know that it can feel frustrating for the people around them that wants to understand them. I feel the same way. I find it very challenging to properly communicate with people who have special needs and disabilities. I always get scared to say the wrong words or express the wrong idea whenever I am talking to someone who has special needs or disabilities. I\u2019ve always been afraid of mistakenly addressing them the wrong way, and I have always seen them as vulnerable and sensitive',
+      'But after the Interview, I have picked up lots of lessons that helped me bend my belief and mindset. Their parents explained that even the parents themselves have a hard time trying to understand what their child wants, and I started to wonder how frustrating it can get for their children, specifically. I can\'t imagine trying to voice out your concerns, but you aren\'t heard or understood. I also learned that they are as capable as \u201cnormal\u201d people. It\'s just that society made us think that they are too vulnerable and failed to see their potential, just because they needed extra assistance. It made us think that understanding and truly setting an eye for them is just a hassle, and we would rather keep them where they are. I realized that I\u2019ve been walking on eggshells around them too much. They are fun to talk to, they are funny, and they are very talented. It is very embarrassing to even share my first thought about them now.',
+      'From now on, I won\'t conclude things right away. I would talk to them, socialize, and overcome the constant anxiety of saying the wrong words to them. I would still be mindful, but I would also learn how to be more casual whenever I\u2019m talking to them. I want them to feel that they truly belong in our community and that there is no need to become embarrassed or afraid. I would make sure that they feel protected at all times and won\'t let anyone discriminate against them. I may not truly understand what it\'s like to be a person with disability or special needs, but I would try my very hardest every day to understand their situation every time.',
     ],
   },
   {
@@ -456,7 +456,7 @@ export const conclusion: ConclusionContent = {
 /* ── References ────────────────────────────────────────────────────── */
 export const references: ReferencesContent = {
   intro:
-    'This bibliography includes the two interviews that form the portfolio’s primary evidence and the philosophical work explicitly used in the reflection. No suggested or background reading is listed.',
+    'This bibliography includes the interviews that form the portfolio\u2019s primary evidence, the group\u2019s supporting research documents, and the philosophical work explicitly used in the reflection. No suggested or background reading is listed.',
   references: [
     {
       citation:
@@ -472,6 +472,22 @@ export const references: ReferencesContent = {
       citation:
         'Aristotle. (1986). De Anima (On the Soul) (H. Lawson-Tancred, Trans.). Penguin Classics. (Original work composed c. 350 B.C.E.)',
       type: 'philosophical',
+    },
+    {
+      citation: 'Compiled Raw Data and Supporting Documents.',
+      type: 'supportingDocument',
+      url: 'https://docs.google.com/document/d/1fxEt_ghJyrnseWyfuRSiOhZhSzguywlMb3V_0tf_zrQ/edit?usp=sharing',
+      platform: 'Google Docs',
+      description:
+        'Group-produced document containing participant interview transcripts, thematic analysis, philosophical questions, and personal reflections collected during the project.',
+    },
+    {
+      citation: 'Raw Thematic Analysis.',
+      type: 'supportingDocument',
+      url: 'https://1drv.ms/w/c/d57d104fa2b13ad6/IQDPmGVBp8adQZotaXVaZGAFASa_NyOFxIw8NOF-kXalMtU?e=LvvYYu',
+      platform: 'Microsoft OneDrive',
+      description:
+        'Group-produced thematic analysis that served as a principal basis for the interpretation of participant interviews, the themes presented in the ePortfolio, the philosophical reflection, and the supporting conclusions drawn from the participants\u2019 experiences.',
     },
   ],
   documentation: [
