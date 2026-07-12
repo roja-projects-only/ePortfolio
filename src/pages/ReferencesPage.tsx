@@ -70,9 +70,9 @@ export function ReferencesPage() {
                   section.types.includes('supportingDocument') ? (
                     <li
                       key={reference.citation}
-                      className="max-w-(--spacing-measure-wide) space-y-1.5 pl-6 -indent-6"
+                      className="max-w-(--spacing-measure-wide) space-y-1.5"
                     >
-                      <p className="font-serif text-reading leading-[1.72] text-ink">
+                      <p className="pl-6 -indent-6 font-serif text-reading leading-[1.72] text-ink">
                         {reference.citation}
                       </p>
                       {reference.description && (
