@@ -1,135 +1,139 @@
-import portfolioData from './content/portfolioData';
-import { useScrollSpy } from './hooks/useScrollSpy';
-import { SkipLink } from './components/navigation/SkipLink';
-import { PortfolioNavigation } from './components/navigation/PortfolioNavigation';
-import { CoverSection } from './components/portfolio/CoverSection';
-import { PortfolioSection } from './components/portfolio/PortfolioSection';
-import { IntroductionSequence } from './components/portfolio/IntroductionSequence';
-import { CommunityEngagementSection } from './components/portfolio/CommunityEngagementSection';
-import { InterviewHighlightsSection } from './components/portfolio/InterviewHighlightsSection';
-import { PhilosophicalReflectionSection } from './components/portfolio/PhilosophicalReflectionSection';
-import { PersonalJourney } from './components/portfolio/PersonalJourney';
-import { ConclusionSection } from './components/portfolio/ConclusionSection';
-import { ReferenceList } from './components/portfolio/ReferenceList';
-import { ContentPlaceholder } from './components/portfolio/ContentPlaceholder';
-import { GrainOverlay } from './components/decorative/GrainOverlay';
-import { PrintHeader } from './components/layout/PrintHeader';
-import { Footer } from './components/layout/Footer';
+import { useState, useEffect, useRef } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'motion/react';
+import { useReducedMotion } from './hooks/useReducedMotion';
+import { sections, sectionIndexByPath } from './content/sections';
+import { SkipLink } from './components/shell/SkipLink';
+import { Sidebar } from './components/shell/Sidebar';
+import { MobileTopBar } from './components/shell/MobileTopBar';
+import { NavDrawer } from './components/shell/NavDrawer';
+import { RouteAnnouncer } from './components/shell/RouteAnnouncer';
 
-const sectionIds = [
-  'cover',
-  'introduction',
-  'community-engagement',
-  'interview-highlights',
-  'philosophical-reflection',
-  'personal-reflection',
-  'conclusion',
-  'references',
+import { CoverPage } from './pages/CoverPage';
+import { IntroductionPage } from './pages/IntroductionPage';
+import { EngagementPage } from './pages/EngagementPage';
+import { ParticipantsPage } from './pages/ParticipantsPage';
+import { VoicesPage } from './pages/VoicesPage';
+import { FindingsPage } from './pages/FindingsPage';
+import { PhilosophyPage } from './pages/PhilosophyPage';
+import { PersonalPage } from './pages/PersonalPage';
+import { CommitmentsPage } from './pages/CommitmentsPage';
+import { ConclusionPage } from './pages/ConclusionPage';
+import { ReferencesPage } from './pages/ReferencesPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+
+const routeElements = [
+  { path: '/', element: <CoverPage /> },
+  { path: '/introduction', element: <IntroductionPage /> },
+  { path: '/engagement', element: <EngagementPage /> },
+  { path: '/participants', element: <ParticipantsPage /> },
+  { path: '/voices', element: <VoicesPage /> },
+  { path: '/findings', element: <FindingsPage /> },
+  { path: '/philosophical-reflection', element: <PhilosophyPage /> },
+  { path: '/personal-reflections', element: <PersonalPage /> },
+  { path: '/commitments', element: <CommitmentsPage /> },
+  { path: '/conclusion', element: <ConclusionPage /> },
+  { path: '/references', element: <ReferencesPage /> },
 ];
 
-/**
- * Renders either a ContentPlaceholder (when the string starts with '[')
- * or a plain paragraph with the text content.
- */
-function renderContent(text: string): React.ReactNode {
-  if (text.startsWith('[')) {
-    return <ContentPlaceholder instruction={text} />;
-  }
-  return <p className="leading-relaxed text-ink-muted">{text}</p>;
-}
+const COLLAPSE_KEY = 'bl-nav-collapsed';
 
 export function App() {
-  const activeId = useScrollSpy(sectionIds);
-  const data = portfolioData;
+  const location = useLocation();
+  const reducedMotion = useReducedMotion();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return window.localStorage.getItem(COLLAPSE_KEY) === '1';
+  });
+  const mainRef = useRef<HTMLElement>(null);
+  const isFirstRender = useRef(true);
+
+  const activeIndex = sectionIndexByPath(location.pathname, '');
+  const activeSection = sections[activeIndex];
+
+  const toggleCollapsed = () => {
+    setCollapsed((c) => {
+      const next = !c;
+      window.localStorage.setItem(COLLAPSE_KEY, next ? '1' : '0');
+      return next;
+    });
+  };
+
+  // Close the drawer on any navigation.
+  useEffect(() => {
+    setDrawerOpen(false);
+  }, [location.pathname]);
+
+  // On route change: reset scroll and move focus to the main region so
+  // keyboard and screen-reader users start at the new content, not where
+  // the previous page left them. Skip the very first render.
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    mainRef.current?.focus({ preventScroll: true });
+  }, [location.pathname]);
+
+  const navWidth = collapsed ? '4.75rem' : 'var(--spacing-sidebar)';
 
   return (
-    <>
+    <div
+      className="min-h-dvh lg:pl-(--nav-w)"
+      style={{ ['--nav-w' as string]: navWidth }}
+    >
       <SkipLink />
-      <GrainOverlay />
 
-      <PortfolioNavigation sectionIds={sectionIds} activeId={activeId} />
+      {/* Desktop: persistent table-of-contents spine */}
+      <Sidebar
+        activeKey={activeSection.key}
+        activeIndex={activeIndex}
+        collapsed={collapsed}
+        onToggleCollapsed={toggleCollapsed}
+      />
 
-      <main id="main-content" className="relative">
-        {/* Section 1: Cover */}
-        <CoverSection />
+      {/* Tablet / mobile: top bar + drawer */}
+      <MobileTopBar
+        currentLabel={activeSection.shortLabel}
+        activeIndex={activeIndex}
+        total={sections.length}
+        onOpenMenu={() => setDrawerOpen(true)}
+        menuOpen={drawerOpen}
+      />
+      <NavDrawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        activeKey={activeSection.key}
+      />
 
-        {/* Content wrapper for all subsequent sections */}
-        <div className="mx-auto max-w-4xl px-6 pb-16">
-          {/* Section 2: Introduction */}
-          <PortfolioSection
-            id="introduction"
-            title="Introduction"
-            subtitle="Understanding the philosophical foundations of this activity"
-            chapter="I"
+      <RouteAnnouncer label={activeSection.label} />
+
+      <main
+        id="main-content"
+        ref={mainRef}
+        tabIndex={-1}
+        className="relative pt-(--topbar-h) lg:pt-0 outline-none"
+        style={{ ['--topbar-h' as string]: '3.5rem' }}
+      >
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={location.pathname}
+            initial={reducedMotion ? false : { opacity: 0, y: 8 }}
+            animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+            exit={reducedMotion ? { opacity: 1 } : { opacity: 0, y: -6 }}
+            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
           >
-            <IntroductionSequence
-              purpose={data.introduction.purpose}
-              phenomenologyExplanation={data.introduction.phenomenologyExplanation}
-              whyListeningMatters={data.introduction.whyListeningMatters}
-            />
-          </PortfolioSection>
-
-          {/* Section 3: Community Engagement */}
-          <PortfolioSection
-            id="community-engagement"
-            title="Community Engagement"
-            subtitle="Documenting the encounter"
-            chapter="II"
-          >
-            <CommunityEngagementSection data={data.communityEngagement} />
-          </PortfolioSection>
-
-          {/* Section 4: Interview Highlights */}
-          <PortfolioSection
-            id="interview-highlights"
-            title="Interview Highlights"
-            subtitle="Key moments from the conversation"
-            chapter="III"
-          >
-            <InterviewHighlightsSection highlights={data.interviewHighlights} />
-          </PortfolioSection>
-
-          {/* Section 5: Philosophical Reflection */}
-          <PortfolioSection
-            id="philosophical-reflection"
-            title="Philosophical Reflection"
-            subtitle="Engaging with deeper questions"
-            chapter="IV"
-          >
-            <PhilosophicalReflectionSection data={data.philosophicalReflection} />
-          </PortfolioSection>
-
-          {/* Section 6: Personal Reflection */}
-          <PortfolioSection
-            id="personal-reflection"
-            title="Personal Reflection"
-            subtitle="Before the encounter, through it, and beyond"
-            chapter="V"
-          >
-            <PersonalJourney
-              beforePrompt={data.personalReflection.beforeInterview.prompt}
-              beforeChildren={renderContent(data.personalReflection.beforeInterview.response)}
-              afterPrompt={data.personalReflection.afterInterview.prompt}
-              afterChildren={renderContent(data.personalReflection.afterInterview.response)}
-              actionsPrompt={data.personalReflection.concreteActionsPrompt}
-              actions={data.personalReflection.concreteActions}
-            />
-          </PortfolioSection>
-
-          {/* Section 7: Conclusion */}
-          <PortfolioSection id="conclusion" title="Conclusion" subtitle="Synthesis and significance" chapter="VI">
-            <ConclusionSection data={data.conclusion} />
-          </PortfolioSection>
-
-          {/* Section 8: References */}
-          <PortfolioSection id="references" title="References" chapter="VII">
-            <ReferenceList references={data.references} />
-          </PortfolioSection>
-        </div>
+            <Routes location={location}>
+              {routeElements.map((r) => (
+                <Route key={r.path} path={r.path} element={r.element} />
+              ))}
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </motion.div>
+        </AnimatePresence>
       </main>
-
-      <PrintHeader />
-      <Footer />
-    </>
+    </div>
   );
 }
