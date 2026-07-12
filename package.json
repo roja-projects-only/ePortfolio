@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "generate-og-image": "node scripts/generate-og-image.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -26,8 +27,12 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
+    "puppeteer": "^25.3.0",
     "shadcn": "^4.13.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
+  },
+  "allowScripts": {
+    "puppeteer@25.3.0": true
   }
 }
