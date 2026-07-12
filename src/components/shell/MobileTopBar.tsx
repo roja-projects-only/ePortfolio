@@ -29,9 +29,11 @@ export function MobileTopBar({
           className="flex shrink-0 items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-accent"
           aria-label="Beyond Limitations — cover"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-md border border-hairline bg-surface-1 font-serif text-xs text-ink">
-            BL
-          </span>
+          <img
+            src={`${import.meta.env.BASE_URL}icon.png`}
+            alt=""
+            className="h-8 w-8 rounded-md border border-hairline object-contain"
+          />
           <span className="hidden font-serif text-reading leading-tight font-medium text-ink sm:inline">
             Beyond Limitations
           </span>

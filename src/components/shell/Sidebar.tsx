@@ -34,9 +34,11 @@ export function Sidebar({ activeKey, activeIndex, collapsed, onToggleCollapsed }
         )}
         aria-label="Beyond Limitations — cover"
       >
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-hairline bg-surface-1 font-serif text-sm text-ink">
-          BL
-        </span>
+        <img
+          src={`${import.meta.env.BASE_URL}icon.png`}
+          alt=""
+          className="h-9 w-9 shrink-0 rounded-md border border-hairline object-contain"
+        />
         {!collapsed && (
           <span className="min-w-0">
             <span className="block truncate font-serif text-reading font-medium leading-tight text-ink">
