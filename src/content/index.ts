@@ -456,7 +456,7 @@ export const conclusion: ConclusionContent = {
 /* ── References ────────────────────────────────────────────────────── */
 export const references: ReferencesContent = {
   intro:
-    'The sources below informed this portfolio. The two interviews are cited as personal communications, in keeping with our confidentiality commitment; no identifying detail is disclosed.',
+    'This bibliography includes the two interviews that form the portfolio’s primary evidence and the philosophical work explicitly used in the reflection. No suggested or background reading is listed.',
   references: [
     {
       citation:
@@ -495,5 +495,5 @@ export const references: ReferencesContent = {
     },
   ] as readonly DocumentationFigure[],
   confidentiality:
-    'Confidentiality statement: The identities of the participants and their children are protected throughout this portfolio. Names have been replaced with anonymous identifiers, and no filename, caption, or description discloses an identity.',
+    'The interview references use anonymous participant labels. No parent name, child name, or other identifying detail is included in this bibliography.',
 };
