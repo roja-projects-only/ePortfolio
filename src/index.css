@@ -142,6 +142,7 @@
     @apply bg-canvas text-ink font-serif antialiased;
     margin: 0;
     font-optical-sizing: auto;
+    overflow-wrap: break-word;
   }
 
   /* Headings default to the serif display voice. */

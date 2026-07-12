@@ -207,7 +207,7 @@ export function PersonalPage() {
             className={cn(
               'relative scroll-mt-24 border-t border-hairline py-14 sm:py-16 lg:py-20',
               mirrored &&
-                'before:absolute before:inset-y-0 before:left-1/2 before:-z-10 before:w-screen before:-translate-x-1/2 before:bg-canvas-subtle',
+                'before:absolute before:inset-y-0 before:left-1/2 before:-z-10 before:w-[100dvw] before:-translate-x-1/2 before:bg-canvas-subtle',
             )}
           >
             <div

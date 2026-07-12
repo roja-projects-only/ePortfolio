@@ -87,33 +87,6 @@ export interface HighlightsContent {
 }
 
 /* ── Philosophical reflection ──────────────────────────────────────── */
-export interface Concept {
-  id: string;
-  name: string;
-  thesis: string;
-  body: Paragraphs;
-}
-
-export interface ThemeSummary {
-  id: string;
-  title: string;
-  interpretation: string;
-  socialReality: string;
-}
-
-export interface PhilosophyContent {
-  lead: Paragraphs;
-  embodiedSpirit: Paragraphs;
-  aristotleNote: Paragraphs;
-  questions: readonly {
-    question: string;
-    answer: Paragraphs;
-  }[];
-  concepts: readonly Concept[];
-  themes: readonly ThemeSummary[];
-  realization: string;
-}
-
 export interface ConcisePhilosophyContent {
   sections: readonly {
     id: string;
