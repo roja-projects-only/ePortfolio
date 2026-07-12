@@ -468,12 +468,7 @@ export const references: ReferencesContent = {
         'Parent Participant 02. (2026, July 9). Interview on the lived experience of caring for a child with a disability [Personal communication].',
       type: 'personalCommunication',
     },
-    {
-      citation:
-        'Aristotle. (1986). De Anima (On the Soul) (H. Lawson-Tancred, Trans.). Penguin Classics. (Original work composed c. 350 B.C.E.)',
-      type: 'philosophical',
-    },
-    {
+{
       citation: 'Compiled Raw Data and Supporting Documents.',
       type: 'supportingDocument',
       url: 'https://docs.google.com/document/d/1fxEt_ghJyrnseWyfuRSiOhZhSzguywlMb3V_0tf_zrQ/edit?usp=sharing',
