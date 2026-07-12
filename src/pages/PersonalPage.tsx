@@ -106,7 +106,11 @@ export function PersonalPage() {
               return (
                 <li key={reflection.id}>
                   <a
-                    href={`#${reflection.id}`}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById(reflection.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
                     className="group flex items-center gap-4 py-3 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
                   >
                     <span className={cn('font-serif text-xl tabular-nums', c.rosterNum)}>{c.number}</span>
