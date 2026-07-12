@@ -36,9 +36,9 @@ export const cover: CoverMeta = {
     'Jordin Rose Dela Cruz',
     'Rodger C. Pacumba Jr.',
   ],
-  gradeSection: 'Grade 12',
-  subject: 'Philosophy of the Human Person',
-  submission: 'July 2026',
+  gradeSection: '12 - KELVIN',
+  subject: 'Introduction to Philosophy',
+  submission: 'July 12, 2026',
 };
 
 /* ── Introduction ──────────────────────────────────────────────────── */
