@@ -4,6 +4,7 @@ import type {
   EngagementContent,
   HighlightsContent,
   PhilosophyContent,
+  ConcisePhilosophyContent,
   PersonalReflection,
   ConclusionContent,
   ReferencesContent,
@@ -44,37 +45,21 @@ export const cover: CoverMeta = {
 /* ── Introduction ──────────────────────────────────────────────────── */
 export const introduction: IntroductionContent = {
   lead: [
-    'This portfolio began with a decision to listen before we spoke. Rather than study persons with disability from a distance, we sat with two mothers who care for children with disabilities and asked them to describe their days as they actually live them.',
-    'What follows is our attempt to think carefully about what we heard — not to summarise it, but to reflect on what it reveals about being human, about dignity, and about the kind of community we are responsible for building.',
+    'A lot of people already have opinions about persons with disability even without really understanding what they go through every day. This portfolio is our attempt to set aside those assumptions by actually listening to two mothers who raises children with disabilities, and to reflect on what their experiences can teach us.',
   ],
-  epigraph: {
-    text:
-      'To understand another person, we must first be willing to receive their experience as it is given, and not as we expect it to be.',
-    attribution: 'A guiding principle of our inquiry',
-  },
   subsections: [
     {
       id: 'purpose',
-      heading: 'The purpose of this inquiry',
+      heading: 'Purpose of the activity',
       body: [
-        'Our task was to move from description toward genuine philosophical reflection. We wanted to understand the lived experiences of persons with disability and their families, and to examine the social realities that shape those experiences, with honesty and respect.',
-        'We approached the two parents not as subjects to be analysed but as people whose knowledge of their own lives is real and authoritative. Our role was to listen closely, to interpret responsibly, and to let their experiences reshape how we think.',
+        'Our class was given the task to conduct interviews that are respectful and ethical, with persons with disability or their families, as a way to raise awareness. We chose to interview two mothers so we could understand their daily realities, the barriers they face in their communities, and what their stories tell us about dignity, freedom, and the kind of community we should be building.',
       ],
     },
     {
       id: 'phenomenology',
-      heading: 'Phenomenology, in plain terms',
+      heading: 'Phenomenology and why listening matters',
       body: [
-        'Phenomenology is the study of experience as it is lived from the inside. Instead of asking only what a condition is from a clinical or outside point of view, it asks what the world feels like for the person living it — what they notice, fear, hope for, and value.',
-        'This mattered for our work because a diagnosis can be recorded on paper, but a life cannot. A phenomenological attitude asked us to set aside our assumptions and attend to what each parent actually described, in her own terms.',
-      ],
-    },
-    {
-      id: 'listening',
-      heading: 'Why listening matters',
-      body: [
-        'It is easy to assume we already understand disability from what we have seen in passing or been told. But an assumption is a conclusion reached without listening, and it often carries pity or discomfort rather than understanding.',
-        'Genuine understanding begins when we allow another person to correct our picture of their life. Listening is not a courtesy added to research; for this inquiry, it was the method itself.',
+        'Phenomenology is the study of how experience is lived from the inside, not from the outside looking in. Instead of just defining disability through a diagnosis, it asks what the world actually feels like for the person living it. A medical record can describe a condition, but it cannot tell you what a mother fears when her child walks alone, or how hard it is to ask for patience in a school that does not understand. Listening, for this inquiry, was not just a courtesy. It was the method itself.',
       ],
     },
   ],
@@ -83,59 +68,59 @@ export const introduction: IntroductionContent = {
 /* ── Community engagement & ethics ─────────────────────────────────── */
 export const engagement: EngagementContent = {
   lead: [
-    'The heart of this project was a set of interviews conducted with two parents of children with disabilities. We treated the encounter itself as an ethical responsibility, not only as a source of information.',
+    'The main part of this project was the interview we conducted with two parents of children with disabilities. We treated the whole process as something that needed to be done ethically, not just as a requirement we had to submit.',
   ],
   interviewDate: 'July 9, 2026',
-  setting: 'Within the participants\u2019 barangay community',
+  setting: 'St. Peter Ville, San Jose Barangay, Montalban, Rizal',
   participants: [
     {
       alias: 'Parent Participant 01',
       description:
-        'A mother caring for a child with Down syndrome, a congenital heart condition, and significant medical and communication support needs. She is also actively involved in community initiatives that support PWD families.',
+        'A mother who takes care of a child with Down syndrome and a congenital heart condition. Her child needs a lot of medical attention and has a hard time communicating what they feel. She is also active in their community, helping other families with PWD children.',
     },
     {
       alias: 'Parent Participant 02',
       description:
-        'A mother whose child manages many daily activities independently but still meets social and institutional barriers, including bullying at school and unsafe roads.',
+        'A mother whose child can do most things on his own but still deals with bullying at school and unsafe roads going home. She had to speak up more than once to protect her child from teachers and other students.',
     },
   ],
   process: [
     {
       label: 'Consent and permission',
       detail:
-        'Before any conversation began, we explained the purpose of the activity and asked for permission to listen, to take notes, and to document respectfully. Participation was voluntary and could be stopped at any point.',
+        'Before we started, we explained to the parents what the interview was for and asked if it was okay to take notes and record. They were free to stop at any time if they were not comfortable.',
     },
     {
       label: 'Interview',
       detail:
-        'We met the parents in their own community and let each conversation unfold at its own pace, following the parents\u2019 lead rather than a rigid script.',
+        'We met the parents at St. Peter Ville in San Jose, Montalban and just let them talk. We did not follow a strict script so they could share what they wanted in their own way.',
     },
     {
       label: 'Transcription',
       detail:
-        'Afterwards we transcribed the recordings carefully, preserving the parents\u2019 own words while removing names and any detail that could identify their families.',
+        'After the interview we wrote down everything they said as carefully as we could. We removed their real names and any detail that might identify them or their children.',
     },
     {
       label: 'Review and analysis',
       detail:
-        'We reviewed the transcripts together to make sure we had understood each parent correctly, then identified the recurring themes across both interviews and reflected on the social realities and philosophical questions they raised.',
+        'We went over the transcripts together to make sure we understood them right. Then we looked for common themes between the two interviews and reflected on what those themes mean for the community.',
     },
   ],
   ethics: [
     {
       title: 'Anonymity and confidentiality',
       detail:
-        'Real names are never revealed. The parents are referred to only by anonymous identifiers, and their children are never named. No caption, filename, or description discloses an identity.',
+        'We never used the real names of the participants or their children. They are only referred to as Parent Participant 01 and Parent Participant 02. Nothing in the portfolio can be used to identify them.',
     },
     {
       title: 'Respectful documentation',
       detail:
-        'We documented the encounter without sensationalising it. We did not record unnecessary medical detail, and we have presented nothing that a participant would not want shared.',
+        'We made sure not to turn their story into something dramatic or exaggerated. We only included what was necessary and what the participants would be okay with sharing.',
     },
     {
       title: 'Faithful representation',
       detail:
-        'We have tried to represent each parent\u2019s meaning accurately. Where we interpret, we say so plainly, so that our reading is never mistaken for the participants\u2019 own words.',
+        'We tried our best to represent what each parent actually meant. When we added our own interpretation, we made sure to separate it from what the participant said so nobody gets confused.',
     },
   ],
 };
@@ -143,15 +128,15 @@ export const engagement: EngagementContent = {
 /* ── Interview Highlights ──────────────────────────────────────────── */
 export const highlights: HighlightsContent = {
   lead: [
-    'The passages below are drawn from what the two parents shared with us. Each quotation is presented in the participant\u2019s own original language — Filipino or Taglish — exactly as spoken, because the way a person chooses their words is part of their meaning. Context and insight are provided in English so the reader can understand what the quotation reveals.',
+    'The passages below come from what the two parents shared with us. Each quotation is in the participant\u2019s own language (Filipino or Taglish), exactly as spoken, because how a person chooses their words is part of what they mean. We added brief context and insight in English so the reader can follow what each quotation reveals.',
   ],
   participants: [
     {
       id: 'p01',
       alias: 'Parent Participant 01',
       summary: [
-        'Participant 01 is a mother caring for a child with Down syndrome and a congenital heart condition. Her daily life revolves around close monitoring, medication, and repeated medical follow-ups. Because her child cannot always identify or express internal pain, she must watch for the smallest signs of distress — a form of care that is constant, skilled, and largely invisible to the outside world.',
-        'Over time she moved from the shock of diagnosis toward acceptance, and from acceptance toward advocacy. She now actively encourages other PWD families to join community programs, and she relies on government and community support to manage the high costs of treatment.',
+        'Participant 01 is a mother caring for a child with Down syndrome and a congenital heart condition. Her daily life is shaped by close monitoring, medication, and medical follow-ups that happen every few months. Because her child cannot always identify or express internal pain, she has to watch for the smallest signs of distress. It is skilled, constant work that most people outside the family never see.',
+        'She moved from the shock of diagnosis toward acceptance, and then toward advocacy. She now encourages other PWD families to join community programs, and she depends on government and community support to manage the high costs of treatment.',
       ],
       quotations: [
         {
@@ -160,7 +145,7 @@ export const highlights: HighlightsContent = {
           context:
             'Speaking about the daily challenge of understanding a child who cannot always communicate pain or hunger.',
           insight:
-            'Caregiving becomes a constant act of interpretation — the parent must learn to read distress through behaviour rather than words.',
+            'Caregiving becomes a constant act of interpretation. The parent must learn to read distress through behaviour rather than words.',
         },
         {
           text: 'Pagdating sa part sa loob, wala kaming kaalaman. Kaya ang hirap po talaga ng bilang magulang sa isang PWD.',
@@ -176,7 +161,7 @@ export const highlights: HighlightsContent = {
           context:
             'Describing the moment of birth and the shock of learning about her child\u2019s condition, followed by a turning point toward acceptance.',
           insight:
-            'Acceptance was not resignation — it was a deliberate decision to love fully, made in the hardest moment.',
+            'She did not just give in. Acceptance was a deliberate decision to love fully, made in the hardest moment.',
         },
         {
           text: 'Kung mayroon pong mga ano para sa gobyerno, diyan po kami nakakaasa. Na dapat po talaga, bigyan ng pansin ang bilang PWD para makaangat ang magulang.',
@@ -192,8 +177,8 @@ export const highlights: HighlightsContent = {
       id: 'p02',
       alias: 'Parent Participant 02',
       summary: [
-        'Participant 02 is a mother whose child can handle most daily tasks independently but still faces social and institutional barriers. Her child writes more slowly than classmates and needs patience and understanding at school — patience that was not always given.',
-        'Her account centres on a confrontation with her child\u2019s teacher, who allegedly threatened her child over slow handwriting and mocked the family for picking him up from school. She advocated fiercely, brought evidence to the principal, and refused to let the matter go. Her story shows that barriers are often social rather than bodily.',
+        'Participant 02 is a mother whose child can handle most daily tasks on his own but still faces social and institutional barriers. Her child writes more slowly than classmates and needs patience at school, which was not always given.',
+        'Her account centres on a confrontation with her child\u2019s teacher, who reportedly threatened her child over slow handwriting and mocked the family for picking him up from school. She brought evidence to the principal, pushed the issue, and refused to let it go. Her story shows that barriers are often social, not bodily.',
       ],
       quotations: [
         {
@@ -202,7 +187,7 @@ export const highlights: HighlightsContent = {
           context:
             'Recalling what her child\u2019s teacher reportedly said about his slow handwriting.',
           insight:
-            'A small accommodation — patience with slower writing — was met with a threat instead of understanding.',
+            'A small accommodation, patience with slower writing, was met with a threat instead of understanding.',
         },
         {
           text: 'Mag-backout na ako, nay, sa pag-aaral\u2026 Yung teacher ko ngayon, lagi akong pinapagalitan.',
@@ -218,7 +203,7 @@ export const highlights: HighlightsContent = {
           context:
             'Describing how her child was mocked by a teacher for needing to be picked up from school.',
           insight:
-            'A parent\u2019s reasonable concern for safety — unsafe roads and crossings — was treated as a joke.',
+            'A parent\u2019s reasonable concern for safety, given the unsafe roads and crossings, was treated as a joke.',
         },
         {
           text: 'Hindi naman natin mapilit \u2019yung gusto natin kung ano ang ipaibigay natin sa kaniya kung ano \u2019yung gusto ng bata, sundan na lang natin kasi PWD nga eh. Kung ang kailangan nila, pagmamahal, unawain, at kalingain.',
@@ -237,10 +222,10 @@ export const highlights: HighlightsContent = {
     context:
       'On the difficulty of recognising a child\u2019s internal pain when communication is limited.',
     insight:
-      'This fear stayed with us most — it is not a fear of disability, but of a world that may not understand her child.',
+      'This fear stayed with us most. It is not a fear of disability, but of a world that may not understand her child.',
   },
   featuredFraming:
-    'Of everything we heard, this stayed with us most. The uncertainty of not knowing where it hurts — and the vigilance it demands — reveals caregiving as a form of love expressed through constant attention.',
+    'Of everything we heard, this is what stayed with us. The uncertainty of not knowing where it hurts, and the vigilance that uncertainty demands, shows caregiving as a kind of love expressed through constant attention.',
 };
 
 /* ── Philosophical reflection ──────────────────────────────────────── */
@@ -381,72 +366,81 @@ export const philosophy: PhilosophyContent = {
 };
 
 /* ── Personal reflections ──────────────────────────────────────────── */
+export const concisePhilosophy: ConcisePhilosophyContent = {
+  sections: [
+    {
+      id: 'being-human',
+      heading: 'What have you learned about being a human from the participants?',
+      body: [
+        'We have learned from this study that as a Human, courage is not optional in life. It is something every person must carry, especially when facing challenges that are not of their own making. But more than courage, this experience taught us the deeper importance of compassion, the willingness to understand what we do not personally live through, particularly the experiences of persons with disabilities.',
+      ],
+    },
+    {
+      id: 'social-realities',
+      heading: 'What Social Realities were revealed?',
+      body: [
+        "The participants' stories revealed a cold hard truth. PWDs often carry burdens they did not choose and cannot change, yet society makes them feel as though their very existence is something to be tolerated rather than embraced. This is not a personal failing on their part, it is a failure of the community around them.",
+        'What struck us most was a fear expressed by more than one parent, the fear of what happens to their child when they themselves are no longer there to protect them. This fear does not exist in isolation, it exists because our communities have not yet made PWDs feel truly safe, seen, or supported. That such a fear persists is, in itself, evidence of how much progress needs to be made to make them feel that this community accepts them.',
+      ],
+    },
+    {
+      id: 'challenged-beliefs',
+      heading: 'How did this experience challenge your previous beliefs?',
+      body: [
+        'This study forced us to face a belief we did not fully realize we held. Like many others, we often unconsciously overlook or underestimate the capabilities of persons with disabilities, seeing them primarily as vulnerable and limited, rather than capable.',
+        'Through this experience, however, we came to see something different. Persons with special needs and disabilities are just as capable as anyone else, and in many cases, even more so. What we are capable of, they are capable of too.',
+        "Just as importantly, we learned that excessive pity or overprotection is not the support PWDs need.Treating them as fragile or in constant need of rescue does not empower them, it makes them feel isolated. It silently builds up the very barriers we claim to want to break down, making them feel like outsiders, like they don't truly belong, rather than equals within their own community.",
+      ],
+    },
+    {
+      id: 'concepts',
+      heading: 'How does the experience relate to human dignity, freedom, empathy, and transcendence',
+      body: [
+        'This experience taught us that dignity is not something anyone should have to work for,  it should be freely given and respected. Simply by being human, every person has the right to dignity, regardless of their condition or physical form.',
+        'We also learned that we are only truly free when we are no longer confined by old mindsets and stereotypes. This is a freedom we owe to everyone, because all people have the right to be free, and to free others from the judgment of those who see them as more vulnerable or less capable. For most of us, freedom is simply given, handed to us, already within reach, already ours to hold. But for others, like persons with disabilities, freedom is something they have had to fight for, and continue to fight for. Free from discrimination. Free from judgment. Free from constant threats. Free from constant stereotyping.',
+        'This experience also deepened our empathy. Listening to the stories of parents raising children with disabilities or special needs broadened our understanding of what they truly go through. We realized that empathy is not simply pity or feeling sorry for someone,  it is making a genuine effort to understand what it is like to stand in their place and how heavy the weight is that they carry every single day.',
+        'Lastly, this experience is connected to transcendence through the parents who continue to guide and watch over their children without end. Tirelessly, they keep showing up for their children even when it is exhausting, even when it is difficult, even when it leaves them empty. Hearing their stories left us in awe of their strength, their strength to keep believing, and their courage to face everything that comes their way',
+      ],
+    },
+    {
+      id: 'inclusion',
+      heading: 'How can society become more inclusive?',
+      body: [
+        'This study showed us that acceptance should only be shown through words but also by changing the system and reforming it to cater to the true needs of PWDs. Like holding institutions accountable for how they treat people with disabilities, especially in settings like schools. A school is a place to learn, it should not feel like a threat. It should be the first place to make us feel safe, for we spend most of our time here.',
+        'Public spaces and communities need to be made physically and socially safer. A true inclusive society invests in accessible infrastructure. safe crossings, reliable transportation, and accommodating public services. So that persons with disabilities are not forced to depend entirely on family members for their basic mobility and safety.',
+        'Finally, and perhaps most importantly, society must unlearn the habit of treating PWDs with either pity or exclusion, both of which strip away their dignity in different ways. Genuine inclusion means recognizing PWDs as capable individuals with the same right to freedom, respect, and belonging as anyone else, rather than treating them as people who must be tolerated, protected from a distance, or fixed.',
+      ],
+    },
+  ],
+};
+
 export const personalReflections: readonly PersonalReflection[] = [
   {
     id: 'kate',
     name: 'Kate Chloe Delos Reyes',
-    standfirst: 'On learning to replace sympathy with attention.',
-    pullQuote:
-      'I came ready to feel sorry for someone. I left having been taught how to pay attention instead.',
-    arc: {
-      before:
-        'Before the interview, I thought of disability mainly as something to feel sorry about. I imagined that the kindest response was sympathy, and I assumed I already understood what these families needed. I was cautious around people with special needs because I was afraid of saying the wrong thing.',
-      challenged:
-        'Listening to Participant 01 challenged that. Her care for her child was not sad; it was skilled, patient, and clear-eyed. My sympathy suddenly felt shallow next to the ordinary strength she described. I also learned that the parents themselves have a hard time understanding what their child wants, and I started to wonder how frustrating it can get for the children.',
-      understand:
-        'I now understand that respect asks more of me than pity does. To honour someone, I have to see their whole life — their capability, their love, and their hopes — and not only their difficulty. They are fun to talk to, they are funny, and they are very talented. It is embarrassing to even share my first thought about them now.',
-      action:
-        'I will catch myself when I start to pity, and turn that impulse into attention: asking, listening, and following the person\u2019s own lead before I decide what they need. I want them to feel that they truly belong in our community.',
-    },
-    commitments: [
-      'I will talk to them, socialise, and overcome the constant anxiety of saying the wrong words — while still being mindful.',
-      'I will make sure they feel protected at all times and won\u2019t let anyone discriminate against them.',
-      'I will try my very hardest every day to understand their situation instead of concluding things right away.',
+    paragraphs: [
+      'Before conducting the interview or formatting the paper, I’ve always thought that people with disabilities are incapable of taking care of themselves. I know that there are PWDs who work and provide for themselves, but it must be very challenging. I’m not proud of how I think, but there are times when I get very cautious when there are people with special needs, because in some cases, they get very aggressive and often throw tantrums. They can be hard to understand sometimes because they have lots of trouble expressing what they feel or think about, and I know that it can feel frustrating for the people around them that wants to understand them. I feel the same way. I find it very challenging to properly communicate with people who have special needs and disabilities. I always get scared to say the wrong words or express the wrong idea whenever I am talking to someone who has special needs or disabilities. I’ve always been afraid of mistakenly addressing them the wrong way, and I have always seen them as vulnerable and sensitive',
+      'But after the Interview, I have picked up lots of lessons that helped me bend my belief and mindset. Their parents explained that even the parents themselves have a hard time trying to understand what their child wants, and I started to wonder how frustrating it can get for their children, specifically. I can\'t imagine trying to voice out your concerns, but you aren\'t heard or understood. I also learned that they are as capable as “normal” people. It\'s just that society made us think that they are too vulnerable and failed to see their potential, just because they needed extra assistance. It made us think that understanding and truly setting an eye for them is just a hassle, and we would rather keep them where they are. I realized that I’ve been walking on eggshells around them too much. They are fun to talk to, they are funny, and they are very talented. It is very embarrassing to even share my first thought about them now.',
+      'From now on, I won\'t conclude things right away. I would talk to them, socialize, and overcome the constant anxiety of saying the wrong words to them. I would still be mindful, but I would also learn how to be more casual whenever I’m talking to them. I want them to feel that they truly belong in our community and that there is no need to become embarrassed or afraid. I would make sure that they feel protected at all times and won\'t let anyone discriminate against them. I may not truly understand what it\'s like to be a person with disability or special needs, but I would try my very hardest every day to understand their situation every time.',
     ],
   },
   {
     id: 'jordin',
     name: 'Jordin Rose Dela Cruz',
-    standfirst: 'On discovering that the hardest barriers are the ones we build.',
-    pullQuote:
-      'The cruelty a child meets at school is not caused by disability. It is a choice other people make.',
-    arc: {
-      before:
-        'I used to assume that the difficulties faced by persons with disability came almost entirely from their condition. I thought of the barriers as medical, and therefore as no one\u2019s fault. I expected the conversation to be heavy or hard to handle.',
-      challenged:
-        'Participant 02\u2019s account changed that. Her child could do a great deal independently, yet still faced bullying, humiliation, and unsafe roads. The heaviest obstacles were made by other people and by an environment that did not care.',
-      understand:
-        'I now understand that many barriers are social, and that social barriers can be removed. What a community tolerates — cruelty, inaccessibility, indifference — is a choice, and choices can change. The interview taught me about human dignity.',
-      action:
-        'I will not stay silent when I see someone humiliated for being different, and I will support the small, practical changes that make a school or a street safer for everyone.',
-    },
-    commitments: [
-      'I will be more open, more respectful, and more willing to listen instead of being afraid.',
-      'I will treat people naturally and sincerely, not just carefully.',
-      'I will speak up when I see cruelty or exclusion, even when staying silent is easier.',
+    paragraphs: [
+      'Before the interview, I honestly thought interacting with persons with disabilities would feel difficult and uncomfortable. I was worried that I might say the wrong thing, ask the wrong question, or make them feel upset without meaning to. I used to see disability mostly as a limitation, so I expected the conversation to be heavy or hard to handle.',
+      'But after hearing their answers, my perspective changed a lot. I realized that what they need most is not pity, but respect, patience, and genuine understanding. They are not defined by their condition alone, they also have goals, opinions, experiences, and a strong sense of self. The interview made me see that living with a disability does not make a person less capable of giving meaningful contributions to others.',
+      'One thing that stayed with me was how honest and thoughtful the interviewee was. Their words showed strength in a quiet but powerful way. It made me reflect on how often society focuses on what PWDs cannot do instead of recognizing what they are already doing every day to live, work, and be heard.',
+      'This experience also made me more aware of my own behavior. I learned that being careful with words matters, but so does being sincere enough to treat people naturally. Instead of being afraid of people with special needs, I should be more open, more respectful, and more willing to listen. The interview did not just teach me about disability, it taught me about human dignity.',
     ],
   },
   {
     id: 'rodger',
     name: 'Rodger C. Pacumba Jr.',
-    standfirst: 'On the meaning of dignity when a life needs constant care.',
-    pullQuote:
-      'A person\u2019s worth was never a question of what they could do without help.',
-    arc: {
-      before:
-        'Before this activity, I quietly measured people by how independent and capable they were. Without meaning to, I treated productivity as though it were the same thing as human worth. I also assumed disability was mostly a mental thing.',
-      challenged:
-        'The two cases were nothing alike. One participant could handle most daily tasks by himself, but he still got bullied and treated unfairly in school. The other needed a lot more help because of communication difficulties and serious health problems. The disability itself is not always the hardest part. A lot of the struggle comes from other people.',
-      understand:
-        'I now understand human dignity as inherent. It is not earned through ability, speed, or self-sufficiency, and it cannot be lost by needing care. A person who depends on others is no less a person. The parents carry a lot — from money problems to the physical work of caregiving — and they do all that while still trying to protect their child.',
-      action:
-        'I will speak and write about disability in language that centres the person, and I will make room for classmates who need support, treating that support as ordinary rather than exceptional.',
-    },
-    commitments: [
-      'I will listen to what PWDs actually need instead of deciding for them.',
-      'I will stop treating their condition as the only thing worth knowing about them.',
-      'I will make sure PWD classmates are actually included in activities and group work, not just present.',
-      'I will support programs that let PWDs and their families take part in the community.',
+    paragraphs: [
+      'At first I thought that calling someone a Person with Disability meant that they had been suffering their whole life from a serious illness. I also assumed disability was mostly a mental thing, like having trouble speaking, communication or understanding other people. The parents we interviewed showed me that this was wrong. Disability shows up in many forms and it affect each person differently. The part I really did not expect was that the person with the disability is not the only one struggling. The parents carry a lot of it too, from the money problems to the physical work of caregiving, and they do all that while still trying to protect their child and figure out what their child needs.',
+      'What changed my understanding was that the two cases were nothing alike. One participant could handle most daily tasks by himself, but he still got bullied and treated unfairly in school. The other needed a lot more help because of communication difficulties and serious health problems. So the disability itself is not always the hardest part. A lot of the struggle comes from other people. The impatience, the lack of understanding, the absence of financial support, the treatment that is difficult to access. Listening to the parents also made me see how much they give up for their children, and I am not sure I could the same.',
+      'After this, I want to be more careful about the assumptions I make about PWDs. I plan to listen to what they actually need instead of deciding for them, and to stop treating their condition as the only thing worth knowing about them. If I see someone being bullied or disrespected. I want to say something instead of keeping quiet, even if keeping quiet is more easier. The things I can do as a student is small. I can make sure PWD classmates are actually included in activities and group work, not just present. I can tell people around me what I learned from this interview. I can support programs that let PWDs and their families take part in the community. None of that fixes everything, but I would rather do it than nothing,.',
     ],
   },
 ];
@@ -454,13 +448,9 @@ export const personalReflections: readonly PersonalReflection[] = [
 /* ── Conclusion ────────────────────────────────────────────────────── */
 export const conclusion: ConclusionContent = {
   body: [
-    'When we set out, we expected to learn about disability. What we learned, more deeply, was about being human — about how much of a person\u2019s life is carried in relationships, in vigilance, in hope, and in the daily work of care.',
-    'The two parents changed our understanding by refusing the roles we had half-prepared for them. They were not objects of pity or figures of inspiration. They were people describing their lives plainly, and asking, in effect, to be understood rather than admired from a distance.',
-    'Philosophical reflection was necessary because description alone would have let us keep our assumptions. Thinking carefully about dignity, freedom, empathy, and transcendence forced us to see that a person\u2019s worth is not a function of ability, and that many of the barriers we observed are made by people and can be unmade by them.',
-    'Inclusion, we now believe, requires both personal change and structural responsibility. It asks each of us to listen and act differently, and it asks our institutions to build environments in which persons with disability and their families can genuinely belong.',
+    'In conclusion, the interview taught that understanding persons with disabilities goes beyond sympathy, it requires respect, openness, and a willingness to see their humanity before their condition. It also reminded me that every person has a story, strengths, and dignity that deserve recognition. Through this reflection, We learned that real understanding begins when we listen carefully and remove our assumptions.',
+    'Philosophical reflection is essential because it helps us think deeply about how we view other people and how we live with them in a community. It encourages us to examine our biases, develop empathy, and recognize the value of every human being. By reflecting philosophically, we do not just learn facts about persons and communities we learn how to relate to them more ethically, responsibly, and meaningfully.',
   ],
-  finalStatement:
-    'We end not with a slogan but with a commitment to keep listening — and to let what we hear continue to change how we live alongside one another.',
 };
 
 /* ── References ────────────────────────────────────────────────────── */
@@ -501,7 +491,7 @@ export const references: ReferencesContent = {
       id: 'setting',
       alt: 'Approved documentation photograph of the community setting where the interviews took place.',
       caption:
-        'The community setting in which the interviews were held, on July 9, 2026.',
+        'St. Peter Ville, San Jose Barangay, Montalban, Rizal, where the interviews were held on July 9, 2026.',
     },
   ] as readonly DocumentationFigure[],
   confidentiality:

@@ -116,6 +116,9 @@
   /* ── Reading measures ── */
   --spacing-measure: 66ch;
   --spacing-measure-tight: 54ch;
+  /* Slightly wider measure for split compositions where a compact identity
+     rail sits beside the reading column; still within the 60–75ch band. */
+  --spacing-measure-wide: 72ch;
   --spacing-sidebar: 17rem;
 
   /* ── Semantic z-index scale ── */

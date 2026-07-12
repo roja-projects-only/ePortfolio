@@ -33,7 +33,6 @@ export interface IntroSubsection {
 
 export interface IntroductionContent {
   lead: Paragraphs;
-  epigraph: { text: string; attribution: string };
   subsections: readonly IntroSubsection[];
 }
 
@@ -115,27 +114,24 @@ export interface PhilosophyContent {
   realization: string;
 }
 
-/* ── Personal reflections ──────────────────────────────────────────── */
-export interface ReflectionArc {
-  before: string;
-  challenged: string;
-  understand: string;
-  action: string;
+export interface ConcisePhilosophyContent {
+  sections: readonly {
+    id: string;
+    heading: string;
+    body: Paragraphs;
+  }[];
 }
 
+/* ── Personal reflections ──────────────────────────────────────────── */
 export interface PersonalReflection {
   id: string;
   name: string;
-  standfirst: string;
-  pullQuote: string;
-  arc: ReflectionArc;
-  commitments: readonly string[];
+  paragraphs: Paragraphs;
 }
 
 /* ── Conclusion ────────────────────────────────────────────────────── */
 export interface ConclusionContent {
   body: Paragraphs;
-  finalStatement: string;
 }
 
 /* ── References ────────────────────────────────────────────────────── */

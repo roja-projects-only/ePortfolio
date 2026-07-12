@@ -11,7 +11,6 @@ const meta = [
 ];
 
 export function EngagementPage() {
-  const settingFigure = references.documentation?.find((d) => d.id === 'setting');
   const p01Figure = references.documentation?.find((d) => d.id === 'participant-01');
   const p02Figure = references.documentation?.find((d) => d.id === 'participant-02');
 
@@ -20,7 +19,7 @@ export function EngagementPage() {
       <SectionHeader
         title="Community Engagement"
         id="page-title"
-        standfirst="We treated the interview as an ethical responsibility, not only as a source of information. How we listened mattered as much as what we heard."
+        standfirst="How we listened mattered as much as what we heard."
       />
 
       <dl className="mt-10 grid gap-6 border-y border-hairline py-6 sm:grid-cols-2">
@@ -70,19 +69,7 @@ export function EngagementPage() {
         <h2 id="process-heading" className="mb-8 text-display-lg text-ink">
           The research process
         </h2>
-        <div className="grid gap-12 lg:grid-cols-[1fr_minmax(0,20rem)] lg:gap-16">
-          <ProcessTimeline steps={engagement.process} />
-          {settingFigure && (
-            <div className="lg:pt-16">
-              <Figure
-                src={settingFigure.src}
-                alt={settingFigure.alt}
-                caption={settingFigure.caption}
-                aspect="aspect-[4/5]"
-              />
-            </div>
-          )}
-        </div>
+        <ProcessTimeline steps={engagement.process} />
       </section>
 
       {/* Ethics */}
