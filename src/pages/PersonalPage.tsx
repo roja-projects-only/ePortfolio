@@ -126,7 +126,7 @@ export function PersonalPage() {
                     <ArrowUpRight
                       size={15}
                       aria-hidden="true"
-                      className="shrink-0 text-ink-faint opacity-0 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                      className="shrink-0 text-ink-faint opacity-0 transition-[opacity,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
                     />
                   </a>
                 </li>

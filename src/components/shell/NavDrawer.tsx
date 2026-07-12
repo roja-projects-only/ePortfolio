@@ -64,7 +64,7 @@ export function NavDrawer({ open, onClose, activeKey }: NavDrawerProps) {
       {open && (
         <div className="lg:hidden" data-chrome>
           <motion.div
-            className="fixed inset-0 z-(--z-drawer-backdrop) bg-ink/25 backdrop-blur-sm"
+            className="fixed inset-0 z-(--z-drawer-backdrop) bg-ink/25"
             onClick={onClose}
             aria-hidden="true"
             initial={reducedMotion ? { opacity: 1 } : { opacity: 0 }}

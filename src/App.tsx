@@ -5,8 +5,7 @@ import { useReducedMotion } from './hooks/useReducedMotion';
 import { sections, sectionIndexByPath } from './content/sections';
 import { SkipLink } from './components/shell/SkipLink';
 import { Sidebar } from './components/shell/Sidebar';
-import { MobileTopBar } from './components/shell/MobileTopBar';
-import { NavDrawer } from './components/shell/NavDrawer';
+import { MobileShell } from './components/shell/MobileShell';
 import { RouteAnnouncer } from './components/shell/RouteAnnouncer';
 
 import { CoverPage } from './pages/CoverPage';
@@ -35,7 +34,6 @@ const COLLAPSE_KEY = 'bl-nav-collapsed';
 export function App() {
   const location = useLocation();
   const reducedMotion = useReducedMotion();
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const [collapsed, setCollapsed] = useState<boolean>(() => {
     if (typeof window === 'undefined') return false;
     return window.localStorage.getItem(COLLAPSE_KEY) === '1';
@@ -53,11 +51,6 @@ export function App() {
       return next;
     });
   };
-
-  // Close the drawer on any navigation.
-  useEffect(() => {
-    setDrawerOpen(false);
-  }, [location.pathname]);
 
   // On route change: reset scroll and move focus to the main region so
   // keyboard and screen-reader users start at the new content, not where
@@ -89,18 +82,7 @@ export function App() {
       />
 
       {/* Tablet / mobile: top bar + drawer */}
-      <MobileTopBar
-        currentLabel={activeSection.shortLabel}
-        activeIndex={activeIndex}
-        total={sections.length}
-        onOpenMenu={() => setDrawerOpen(true)}
-        menuOpen={drawerOpen}
-      />
-      <NavDrawer
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        activeKey={activeSection.key}
-      />
+      <MobileShell />
 
       <RouteAnnouncer label={activeSection.label} />
 
