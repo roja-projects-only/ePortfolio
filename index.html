@@ -10,24 +10,6 @@
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#f7f6f2" />
     <title>Beyond Limitations — A Philosophical Reflection</title>
-    <!--
-      Restores a deep link that the 404.html SPA fallback encoded, before the
-      app boots so React Router reads the correct path. No-op for normal loads.
-    -->
-    <script>
-      (function (l) {
-        if (l.search[1] === '/') {
-          var decoded = l.search
-            .slice(1)
-            .split('&')
-            .map(function (s) {
-              return s.replace(/~and~/g, '&');
-            })
-            .join('?');
-          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
-        }
-      })(window.location);
-    </script>
   </head>
   <body>
     <div id="root"></div>
