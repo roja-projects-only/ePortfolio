@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Color — dark editorial canvas (adapted from DESIGN.md) ── */
+  --color-canvas: #0a0a0b;
+  --color-surface-1: #161617;
+  --color-surface-2: #1f1f21;
+  --color-surface-3: #29292c;
+  --color-hairline: #2a2a2d;
+  --color-hairline-soft: #1c1c1e;
+  --color-ink: #f2f2f0;
+  --color-ink-muted: #9a9a97;
+  --color-ink-faint: #6f6f6d;
+  --color-accent: #5ea8ff;
+  --color-accent-ring: rgb(94 168 255 / 0.35);
+  --color-gradient-violet: #6a4cf5;
+  --color-gradient-magenta: #d44df0;
+  --color-gradient-orange: #ff7a3d;
+  --color-gradient-coral: #ff5577;
+
+  /* ── Typography ── */
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+
+  --text-display-2xl: clamp(2.75rem, 2rem + 4.5vw, 6rem);
+  --text-display-2xl--line-height: 0.95;
+  --text-display-2xl--letter-spacing: -0.04em;
+  --text-display-2xl--font-weight: 560;
+
+  --text-display-xl: clamp(2.25rem, 1.6rem + 3.5vw, 4.25rem);
+  --text-display-xl--line-height: 1.0;
+  --text-display-xl--letter-spacing: -0.035em;
+  --text-display-xl--font-weight: 560;
+
+  --text-display-lg: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+  --text-display-lg--line-height: 1.08;
+  --text-display-lg--letter-spacing: -0.025em;
+  --text-display-lg--font-weight: 550;
+
+  --text-display-md: clamp(1.375rem, 1.2rem + 1vw, 1.75rem);
+  --text-display-md--line-height: 1.15;
+  --text-display-md--letter-spacing: -0.015em;
+  --text-display-md--font-weight: 550;
+
+  /* ── Radius ── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 15px;
+  --radius-xl: 20px;
+  --radius-2xl: 30px;
+  --radius-pill: 999px;
+
+  /* ── Spacing ── */
+  --spacing-section: 8rem;
+  --spacing-section-sm: 4rem;
+  --spacing-prose: 65ch;
+}
+
+/* ── Base layer ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    margin: 0;
+    font-feature-settings: "cv05", "cv11", "ss03";
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-sans text-ink;
+    letter-spacing: -0.02em;
+    font-weight: 550;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+/* ── Scrollbar ── */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-surface-3) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-surface-3);
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-ink-faint);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Visually hides a scrollbar (e.g. horizontal chip pickers) while keeping
+   the element scrollable by touch, wheel, and keyboard. */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Decorative grain (paired with GrainOverlay component) ── */
+@keyframes grain-drift {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-1%, -2%); }
+  30% { transform: translate(2%, 1%); }
+  50% { transform: translate(-1%, 2%); }
+  70% { transform: translate(1%, -1%); }
+  90% { transform: translate(-2%, 1%); }
+}
+
+.animate-grain {
+  animation: grain-drift 8s steps(8) infinite;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-grain {
+    animation: none;
+  }
+}
+
+/* ── Print styles ── */
+@media print {
+  nav,
+  button:not(.print-show),
+  [role="dialog"],
+  [data-decorative],
+  .skip-link {
+    display: none !important;
+  }
+
+  .print-header {
+    display: block !important;
+  }
+
+  html, body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+
+  * {
+    color: black !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  h1 { font-size: 20pt; }
+  h2 { font-size: 16pt; }
+  h3 { font-size: 13pt; }
+  p, li { font-size: 11pt; }
+
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 1.5rem 0 !important;
+  }
+
+  [class*="border"],
+  [data-placeholder] {
+    border: 1px solid #999 !important;
+  }
+
+  [data-placeholder] {
+    border-style: dashed !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555 !important;
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}
